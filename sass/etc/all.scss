@@ -1,0 +1,54 @@
+/*
+ * This is is imported by virtue of "sass.etc" in "app.json".
+ */
+ 
+ .containerblock {
+ 	padding:12px;
+ 	font-size:1.2em
+ }
+ 
+ .dockeditem {
+ 	font-weight:bold;
+ 	font-size:1.1em
+ }
+ 
+ .imagefloater {
+ 	float:left;
+ 	margin-right:12px;
+ }
+ 
+ .seriestitle {
+ 	font-weight:bold;
+ }
+ 
+ .seriesdata {
+ 	margin-top:6px;
+ 	margin-left:12px;
+ }
+ 
+.seriesrole {
+	margin-top:4px;
+	margin-left:12px;	
+	float:left;
+}
+.x-pinned, .x-itemheader {
+	background-color:var(--base-color) !important;
+	color:white !important;
+}
+.series .x-pinned .x-innerhtml:before {
+	content: 'Staffel ';
+}
+
+.rolefloater {
+	width:200px
+}
+
+.media {
+	font-size:1.2em;
+	padding-left:12px;
+	padding-bottom:6px;
+}
+
+.iconspan {
+	color:var(--base-color)
+}

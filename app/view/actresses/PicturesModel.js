@@ -9,16 +9,14 @@ Ext.define('filmdb.view.actresses.PicturesModel', {
 			model: 'filmdb.model.Picture',
 			pageSize: 999,
 			autoLoad: true,
-			proxy: {
-				type: 'rest',
-				useDefaultXhrHeader: false,
-				url: urlbase + 'actresses/pictures.json',
+			proxy: Ext.apply({
+				url: defaults.urlbase + 'actresses/pictures.json',
 				reader: {
-					type: 'json',
 					rootProperty: 'pictures',
 					successProperty: 'success'
 				}
-			}
+			}, defaults.proxy)
+
 		}
 	}
 });

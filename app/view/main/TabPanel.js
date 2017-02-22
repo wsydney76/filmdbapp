@@ -17,6 +17,10 @@ Ext.define('filmdb.view.main.TabPanel', {
 	},
 
 	tabBarPosition: 'top',
+	
+	layout: {
+	     animation: defaults.animation
+	 },
 
 	items: [{
 		title: 'Serien',

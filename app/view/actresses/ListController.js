@@ -14,8 +14,14 @@ Ext.define('filmdb.view.actresses.ListController', {
 	
 	onActivate: function() {
 		var store = this.getViewModel().getStore('actresses');
-		if (! store.isLoaded())
+		if (! store.isLoaded()) {
+		 
+		 if( ! appController.isOnline()) {
+		 	Ext.toast('Using offline data');
+		 	store.getProxy().setUrl('resources/data/actresses.json');
+		 }		 
 		 store.load();
+		}
 	},
 
 	onItemTap: function(list, index, target, record, e, eOpts) {

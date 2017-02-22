@@ -19,7 +19,7 @@ Ext.define('filmdb.view.actresses.List', {
 	grouped: true,
 	indexBar: true,
 
-	itemTpl: ['<b>{firstname} {lastname}</b> <img src="/filmdb/images/stars-{stars}.gif"/>', 
+	itemTpl: ['<b>{firstname} {lastname}</b> {[getStarsImgTag(values.stars)]}', 
 		'<tpl if="values.haspictures != 0"> <span class="x-fa fa-camera iconspan"></span></tpl>',
 		'<br/>{birthday}'],
 	

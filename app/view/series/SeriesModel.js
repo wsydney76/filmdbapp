@@ -7,27 +7,25 @@ Ext.define('filmdb.view.series.SeriesModel', {
 	stores: {
 		series: {
 			model: 'filmdb.model.Series',
-			
-			proxy: {
-				type: 'rest',
-				useDefaultXhrHeader: false,
-				url: urlbase + 'series/fulldata.json/',
+
+			proxy: Ext.apply({
+				url: defaults.urlbase + 'series/fulldata.json/',
 				reader: {
-					type: 'json',
 					rootProperty: 'seasons'
 				}
-			}
+			}, defaults.proxy)
+
 		},
 		films: {
 			model: 'filmdb.model.Film',
-			
+
 			grouper: {
 				sortProperty: 'season',
 				groupFn: function(record) {
-					 return record.get('season') > 0 ? 'Staffel ' + record.get('season') : '-';
+					return record.get('season') > 0 ? 'Staffel ' + record.get('season') : '-';
 				}
 			}
-			
+
 		}
 	}
 

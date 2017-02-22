@@ -4,13 +4,11 @@ Ext.define('filmdb.view.search.ResultModel', {
 
 	stores: {
 		results: {
-			autoLoad: false,
-			pageSize: 999,
-			proxy: {
-				type: 'rest',
-				useDefaultXhrHeader: false,
-				url: urlbase + 'search/search.json'
-			}
+			pageSize: 0,
+			proxy: Ext.apply({
+				url: defaults.urlbase + 'search/search.json'
+			}, defaults.proxy)
+
 		}
 	}
 

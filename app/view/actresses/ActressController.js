@@ -3,17 +3,26 @@ Ext.define('filmdb.view.actresses.ActressController', {
 	alias: 'controller.actresses-actress',
 
 	initViewModel: function(viewModel) {
+		var store = viewModel.getStore('actress');
+		var proxy = store.getProxy();
+		
 		this.id = viewModel.getView().actress_id;
 		this.name = viewModel.getView().title;
 		
-		viewModel.getStore('actress').load({
-			id: this.id,
+		if (appController.isOnline()) {
+			proxy.setUrl(proxy.getUrl() + this.id);
+		} else {
+			Ext.toast('Using offline data');
+			proxy.setUrl('resources/data/actress/' + this.id + '.json');
+		}
+		
+		store.load({
 			callback: function(records, operation, success) {
 				if (success) {
 					viewModel.setData({
 						roles: records[0].get('roles')
 					});
-					if (records[0].get('haspictures') > 0) {
+					if ((records[0].get('haspictures') > 0) && (appController.isOnline())) {
 						this.lookup('pictureButton').setHidden(false);
 					}
 				}

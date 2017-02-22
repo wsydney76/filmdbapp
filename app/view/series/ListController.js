@@ -1,14 +1,24 @@
 Ext.define('filmdb.view.series.ListController', {
-    extend: 'Ext.app.ViewController',
-    alias: 'controller.series-list',
-    control: {
-    	'list': {
-    		itemtap: 'onItemTap'
-    	}
-    },
-    
-    onItemTap:function(list, index, target, record, e, eOpts) {
-    	appController.showSeries(record.getId(),record.get('name'));
-    }
-    
+	extend: 'Ext.app.ViewController',
+	alias: 'controller.series-list',
+	control: {
+		'list': {
+			itemtap: 'onItemTap'
+		}
+	},
+
+	onActivate: function() {
+		var store = this.getViewModel().getStore('series');
+		if (! store.isLoaded()) {
+			if (! appController.isOnline()) {
+				Ext.toast('Using offline data');
+				store.getProxy().setUrl('resources/data/series.json');
+			}
+			store.load();
+		}
+	},
+
+	onItemTap: function(list, index, target, record, e, eOpts) {
+		appController.showSeries(record.getId(), record.get('name'));
+	}
 });

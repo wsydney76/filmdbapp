@@ -8,19 +8,17 @@ Ext.define('filmdb.view.actresses.ListModel', {
 	stores: {
 		actresses: {
 			model: 'filmdb.model.Actress',
-			pageSize: 9999,
-			autoLoad: false,			
+			pageSize: 0,
 			grouper: {
 				groupFn: function(record) {
-					 return record.get('lastname')[0].toUpperCase();
+					return record.get('lastname')[0].toUpperCase();
 				}
 			},
-			proxy: {
-				type: 'rest',
-				useDefaultXhrHeader: false,
-				url: urlbase + 'actresses/read.json',
-				reader: reader
-			}
+			proxy: Ext.apply({
+				url: defaults.urlbase + 'actresses/read.json',
+				reader: defaults.reader
+			}, defaults.proxy)
+
 		}
 	}
 

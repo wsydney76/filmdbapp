@@ -3,20 +3,32 @@ Ext.define('filmdb.view.series.SeriesController', {
 	alias: 'controller.series-series',
 
 	initViewModel: function(viewModel) {
+		var store = viewModel.getStore('series');
+		var proxy = store.getProxy();
+		
+		this.id = viewModel.getView().series_id;
+		
+		if (appController.isOnline()) {
+			proxy.setUrl(proxy.getUrl() + this.id);
+		} else {
+			Ext.toast('using offline data');
+			proxy.setUrl('resources/data/series/' + this.id + '.json');
+		}
 
-		viewModel.getStore('series').load({
-			id: viewModel.getView().series_id,
+		store.load({			
 			callback: function(records, operation, success) {
-				var films = [];
-				for (var i = 0; i < records.length; i++) {
-					var tmp = records[i].get('films');
-					for (var j = 0; j < tmp.length; j++) {
-						films.push(tmp[j]);
+				if (success) {
+					var films = [];
+					for (var i = 0; i < records.length; i++) {
+						var tmp = records[i].get('films');
+						for (var j = 0; j < tmp.length; j++) {
+							films.push(tmp[j]);
+						}
 					}
+	
+					viewModel.getStore('films').setData(films);
+					vm = viewModel;
 				}
-
-				viewModel.getStore('films').setData(films);
-				vm = viewModel;
 			}
 		});
 	},

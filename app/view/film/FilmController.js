@@ -3,8 +3,20 @@ Ext.define('filmdb.view.film.FilmController', {
 	alias: 'controller.film-film',
 	
 	initViewModel: function(viewModel) {
-		viewModel.getStore('films').load({
-			id: viewModel.getView().film_id,
+		
+		var store = viewModel.getStore('films');
+		var proxy = store.getProxy();
+		this.id = this.getView().film_id;
+		
+		if (appController.isOnline()) {
+			proxy.setUrl(proxy.getUrl() + this.id);;
+		}
+		else {
+			Ext.toast('Using offline data');
+			proxy.setUrl('resources/data/film/' + this.id + '.json'); 
+		}
+		
+		store.load({			
 			callback: function(records, operation, success) {
 				if (success)
 					viewModel.setData({

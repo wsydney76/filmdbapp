@@ -16,6 +16,7 @@ Ext.define('filmdb.Application', {
 
 	launch: function() {
 		appController = filmdb.app.getController('appController');
+		document.addEventListener("backbutton", appController.goBack, false);
 		Ext.Viewport.setMenu({
 			xtype: 'mainMenu'
 		}, {

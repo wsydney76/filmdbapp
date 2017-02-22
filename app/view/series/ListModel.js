@@ -7,14 +7,11 @@ Ext.define('filmdb.view.series.ListModel', {
 	stores: {
 		series: {
 			model: 'filmdb.model.Series',
-			pageSize: 9999,
-			autoLoad: true,
-			proxy: {
-				type: 'rest',
-				url: urlbase + 'series/read.json',
-				useDefaultXhrHeader: false,
-				reader: reader
-			}
+			pageSize: 0,
+			proxy: Ext.apply({
+				url: defaults.urlbase + 'series/read.json',
+				reader: defaults.reader
+			}, defaults.proxy) 			
 		}
 	}
 

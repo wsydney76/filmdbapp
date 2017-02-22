@@ -9,28 +9,35 @@ Ext.define('filmdb.view.main.Main', {
 	extend: 'Ext.navigation.View',
 	xtype: 'app-main',
 
-	requires: ['Ext.MessageBox', 'filmdb.view.main.MainController', 'filmdb.view.main.MainModel', 'filmdb.view.main.TabPanel','filmdb.view.search.Panel'],
+	requires: ['Ext.MessageBox', 'filmdb.view.main.MainController', 'filmdb.view.main.MainModel', 'filmdb.view.main.TabPanel', 'filmdb.view.search.Panel'],
 
 	controller: 'main',
 	viewModel: 'main',
 
+	layout: {
+		animation: defaults.animation
+	},
+
 	// show only arrow on back button
 	defaultBackButtonText: '',
-	
+
 	navigationBar: {
-		items: [{			
+		items: [{
 			xtype: 'button',
 			iconCls: 'x-fa fa-navicon',
 			align: 'right',
-			ui:'dark',			
-			itemId: 'menuButton'					
+			ui: 'dark',
+			itemId: 'menuButton'
 		}]
 	},
 
 	// include tabPanel
 	items: [{
 		xtype: 'mainTabPanel',
-		title: 'Film DB'
+		title: 'Film DB',
+		layout: {
+			animation: defaults.animation
+		}
 	}]
 });
 

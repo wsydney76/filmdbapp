@@ -1,4 +1,21 @@
 {
+    "builds": {
+        "web": {"default": true},
+        "native": {
+            "packager": "cordova",
+            "cordova" : {
+                "config": {
+                    // Uncomment the line below and add the platforms you wish to build for
+                    "platforms": "android",
+
+                    "id": "com.svt.filmdb",
+                    "name": "filmDB"
+                }
+            }
+        }
+    },
+
+                
     /**
      * The application's namespace.
      */

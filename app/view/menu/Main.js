@@ -14,6 +14,12 @@ Ext.define('filmdb.view.menu.Main', {
 	}, {
 		text: 'Suche',
 		iconCls: 'x-fa fa-search',
-		itemId: 'searchButton'
+		itemId: 'searchButton',
+		reference: 'searchButton'
+	},{
+		text: 'dummy',
+		iconCls: 'x-fa fa-plane',
+		itemId: 'offlineButton',
+		reference: 'offlineButton'
 	}]
 });

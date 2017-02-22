@@ -27,5 +27,10 @@ Ext.define('filmdb.view.series.List',{
     itemTpl : [
     	'<b>{name}</b><br/>',
     	'{station}'
-    ]
+    ],
+	listeners: {
+		// activate fires too early
+		painted: 'onActivate'
+	}
+
 });

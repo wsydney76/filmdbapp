@@ -7,7 +7,8 @@ Ext.define('filmdb.view.actresses.ListController', {
 			itemtap: 'onItemTap'		
 		},
 		"#actressFilterField": {
-			action: 'onSearchfieldAction',			
+			action: 'onSearchfieldAction',
+			change: 'onSearchfieldAction',				
 			clearicontap: 'onSearchfieldClearicontap'
 		}
 	},
@@ -17,9 +18,8 @@ Ext.define('filmdb.view.actresses.ListController', {
 		if (! store.isLoaded()) {
 		 
 		 if( ! appController.isOnline()) {
-		 	Ext.toast('Using offline data');
 		 	store.getProxy().setUrl('resources/data/actresses.json');
-		 }		 
+		 }		 		 
 		 store.load();
 		}
 	},

@@ -10,9 +10,6 @@ Ext.define('filmdb.view.main.MainController', {
 	alias: 'controller.main',
 
 	control: {
-		'app-main': {
-			push: 'onPush'
-		},
 		'#menuButton': {
 			tap : 'onMenuButtonTap'
 		}
@@ -20,12 +17,5 @@ Ext.define('filmdb.view.main.MainController', {
 
 	onMenuButtonTap: function() {
 		Ext.Viewport.toggleMenu('left');
-	},
-
-	onPush: function(navPanel, view) {
-		var maxChars = Math.floor(window.innerWidth / 10) - 10;
-		if (view.title.length > maxChars) {
-			navPanel.getNavigationBar().setTitle(view.title.substring(0, maxChars) + '...');
-		}
 	}
 });

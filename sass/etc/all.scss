@@ -17,7 +17,7 @@
  	margin-right:12px;
  }
  
- .seriestitle {
+ .seriestitle{
  	font-weight:bold;
  }
  
@@ -30,6 +30,12 @@
 	margin-top:4px;
 	margin-left:12px;	
 	float:left;
+}
+
+.infotitle {
+	font-weight:bold;
+	margin-top:12px;
+	margin-bottom:12px;
 }
 .x-pinned, .x-itemheader {
 	background-color:var(--base-color) !important;

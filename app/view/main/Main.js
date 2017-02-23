@@ -15,7 +15,7 @@ Ext.define('filmdb.view.main.Main', {
 	viewModel: 'main',
 
 	layout: {
-		animation: defaults.animation
+		animation: Ext.os.is.Android ? false :  'slide'
 	},
 
 	// show only arrow on back button
@@ -36,7 +36,7 @@ Ext.define('filmdb.view.main.Main', {
 		xtype: 'mainTabPanel',
 		title: 'Film DB',
 		layout: {
-			animation: defaults.animation
+			animation: Ext.os.is.Android ? false :  'slide'
 		}
 	}]
 });

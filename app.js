@@ -5,14 +5,14 @@
  */
 
 
-
 Ext.application({
     name: 'filmdb',
 
     extend: 'filmdb.Application',
 
     requires: [
-        'filmdb.view.main.Main','Ext.Toast', 'Ext.MessageBox', 'Ext.data.proxy.Rest'
+        'filmdb.view.main.Main','Ext.Toast', 'Ext.MessageBox', 'Ext.data.proxy.Rest',
+        'filmdb.overrides.locale.de.LoadMask'
     ],
 
     // The name of the initial view to create. With the classic toolkit this class

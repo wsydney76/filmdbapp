@@ -6,6 +6,8 @@ Ext.define('filmdb.view.search.ResultController', {
 		var store = viewModel.getStore('results');
 		var proxy = store.getProxy();
 		proxy.setExtraParam("q", viewModel.getView().q);
+		mask(this.getView());
+		
 		store.load({
 			callback: function(records, operation, success) {
 				if (success)
@@ -13,7 +15,9 @@ Ext.define('filmdb.view.search.ResultController', {
 						items: records[0].get('items'),
 						response: records[0].get('response')
 					});
-			}
+				unmask(this.getView());					
+			},
+			scope: this
 		});
 	},
 

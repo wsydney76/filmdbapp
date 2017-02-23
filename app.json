@@ -84,6 +84,7 @@
     "requires": [
         "font-awesome"
     ],
+    
 
     /**
      * Fashion build configuration properties.

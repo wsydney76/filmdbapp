@@ -3,17 +3,17 @@ Ext.define('filmdb.controller.appController', {
     
     
     showActress: function(id,name) {
-    	var view = new filmdb.view.actresses.Actress({actress_id:id, title:name});
+    	var view = new filmdb.view.actresses.Actress({actress_id:id, title:getNavTitle(name)});
     	this.showView(view);		
     },
     
     showFilm: function(id, title) {
-    	var view = new filmdb.view.film.Film({film_id:id, title:title});
+    	var view = new filmdb.view.film.Film({film_id:id, title:getNavTitle(title)});
     	this.showView(view);
     },
     
     showSeries: function(id, name) {
-    	var view = new filmdb.view.series.Series({series_id:id, title:name});
+    	var view = new filmdb.view.series.Series({series_id:id, title:getNavTitle(name)});
     	this.showView(view);
     },
     
@@ -31,6 +31,12 @@ Ext.define('filmdb.controller.appController', {
 	
 	toggleOnline: function() {
 		this.setSetting('offlineMode', this.isOnline() ? 'off' : 'on');
+		if (! this.isOnline()) {
+			var p = this.getNavPanel().getItems();
+			if (p.length == 2) {
+				Ext.getCmp('seriesList').getController().onActivate();
+			}
+		}
 	},
 	
 	goBack: function() {
@@ -49,6 +55,7 @@ Ext.define('filmdb.controller.appController', {
 			
 		}
 	},
+
 	
 	getSetting: function(item, defaultValue) {
 		var setting = localStorage.getItem('filmdb_' + item);
@@ -57,6 +64,13 @@ Ext.define('filmdb.controller.appController', {
 
 	setSetting: function(item, value) {
 		localStorage.setItem('filmdb_' + item, value);
+	},
+	
+	routes: {
+		'info' : function() {
+			var view = new filmdb.view.menu.Info({title:'Info'});
+			this.showView(view);
+		}
 	}
 	
 });

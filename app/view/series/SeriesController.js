@@ -5,17 +5,17 @@ Ext.define('filmdb.view.series.SeriesController', {
 	initViewModel: function(viewModel) {
 		var store = viewModel.getStore('series');
 		var proxy = store.getProxy();
-		
+
 		this.id = viewModel.getView().series_id;
-		
+
 		if (appController.isOnline()) {
 			proxy.setUrl(proxy.getUrl() + this.id);
+			mask(this.getView());
 		} else {
-			Ext.toast('using offline data');
 			proxy.setUrl('resources/data/series/' + this.id + '.json');
 		}
-
-		store.load({			
+				
+		store.load({
 			callback: function(records, operation, success) {
 				if (success) {
 					var films = [];
@@ -25,11 +25,11 @@ Ext.define('filmdb.view.series.SeriesController', {
 							films.push(tmp[j]);
 						}
 					}
-	
 					viewModel.getStore('films').setData(films);
-					vm = viewModel;
+					unmask(this.getView());
 				}
-			}
+			},
+			scope: this
 		});
 	},
 	control: {

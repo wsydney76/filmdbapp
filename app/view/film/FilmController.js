@@ -10,9 +10,9 @@ Ext.define('filmdb.view.film.FilmController', {
 		
 		if (appController.isOnline()) {
 			proxy.setUrl(proxy.getUrl() + this.id);;
+			mask(this.getView());
 		}
 		else {
-			Ext.toast('Using offline data');
 			proxy.setUrl('resources/data/film/' + this.id + '.json'); 
 		}
 		
@@ -24,7 +24,9 @@ Ext.define('filmdb.view.film.FilmController', {
 						roles: records[0].get('roles'),
 						media: records[0].get('media')
 					});
-			}
+				
+				unmask(this.getView());
+			}, scope: this
 		});
 	},
 	

@@ -3,7 +3,9 @@ Ext.define('filmdb.view.series.List',{
     extend: 'Ext.dataview.List',
     
     xtype: 'seriesList',
-
+    
+	id: 'seriesList',
+	
     requires: [
         'filmdb.view.series.ListController',
         'filmdb.view.series.ListModel',

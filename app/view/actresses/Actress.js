@@ -34,7 +34,8 @@ Ext.define('filmdb.view.actresses.Actress',{
 				
 				itemTpl: [		
 					'<div class="containerblock">',	
-					'{[getActressImgTag(values.imagefile,"imagefloater")]}',				
+					'{[getActressImgTag(values.imagefile,"imagefloater")]}',	
+					'<b>{name}</b><br/>',			
 					'{[getStarsImgTag(values.stars)]}',			
 					'<br/>{birthday}',
 					'</div>'

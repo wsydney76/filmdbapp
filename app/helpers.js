@@ -18,6 +18,17 @@ function getPhotosImgTag() {
 	return '<img src="resources/photos.png"/> ';
 }
 
+function mask(view) {
+	view.setMasked({
+		xtype: 'loadmask',
+		message: 'Lade Daten...'
+	});
+}
+
+function unmask(view) {
+	view.setMasked(false);
+}
+
 function showRestError(operation) {
 	// publish for developer tools console, just in case...
 	op = operation;
@@ -47,7 +58,10 @@ function showRestError(operation) {
 				reason += '<br/>' + msg;
 			}
 		} else {
-			view = new Ext.Container({title:"Error", html:err});
+			view = new Ext.Container({
+				title: "Error",
+				html: err
+			});
 			appController.showView(view);
 		}
 	} catch (e) {
@@ -59,4 +73,9 @@ function showRestError(operation) {
 		message: reason,
 		buttons: Ext.Msg.OK
 	});
+}
+
+function getNavTitle(title) {
+	var maxChars = Math.floor(window.innerWidth / 10) - 10;
+	return title.length > maxChars ? title.substring(0, maxChars) + '...' : title;
 }

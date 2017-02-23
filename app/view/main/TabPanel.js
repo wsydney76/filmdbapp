@@ -3,7 +3,8 @@ Ext.define('filmdb.view.main.TabPanel', {
 
 	xtype: 'mainTabPanel',
 
-	requires: ['filmdb.view.main.TabPanelController', 'filmdb.view.main.TabPanelModel', 'filmdb.view.series.List', 'filmdb.view.actresses.List'],
+	requires: ['filmdb.view.main.TabPanelController', 'filmdb.view.main.TabPanelModel', 
+	'filmdb.view.series.List', 'filmdb.view.actresses.List', 'filmdb.view.film.List'],
 
 	controller: 'main-tabpanel',
 	viewModel: {
@@ -19,22 +20,29 @@ Ext.define('filmdb.view.main.TabPanel', {
 	tabBarPosition: 'top',
 	
 	layout: {
-	     animation: defaults.animation
+	     animation: Ext.os.is.Android ? false :  'slide'
 	 },
 
 	items: [{
 		title: 'Serien',
-		iconCls: 'x-fa fa-film',
+		//iconCls: 'x-fa fa-film',
 		layout: 'fit',
 		items: [{
 			xtype: 'seriesList'
 		}]
 	}, {
-		title: 'Darsteller',
-		iconCls: 'x-fa fa-user',	
+		title: 'Darstellerinnen',
+		//iconCls: 'x-fa fa-user',	
 		layout: 'fit',	
 		items: [{
 			xtype: 'actressList'
+		}]
+	}, {
+		title: 'Filme',
+		//iconCls: 'x-fa fa-user',	
+		layout: 'fit',	
+		items: [{
+			xtype: 'filmList'
 		}]
 	}]
 

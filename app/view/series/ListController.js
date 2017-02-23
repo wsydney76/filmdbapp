@@ -11,7 +11,7 @@ Ext.define('filmdb.view.series.ListController', {
 		var store = this.getViewModel().getStore('series');
 		if (! store.isLoaded()) {
 			if (! appController.isOnline()) {
-				Ext.toast('Using offline data');
+				Ext.toast('Benutze Offline-Daten');
 				store.getProxy().setUrl('resources/data/series.json');
 			}
 			store.load();

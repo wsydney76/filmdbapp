@@ -11,8 +11,8 @@ Ext.define('filmdb.view.actresses.ActressController', {
 		
 		if (appController.isOnline()) {
 			proxy.setUrl(proxy.getUrl() + this.id);
+			mask(this.getView());			
 		} else {
-			Ext.toast('Using offline data');
 			proxy.setUrl('resources/data/actress/' + this.id + '.json');
 		}
 		
@@ -25,6 +25,7 @@ Ext.define('filmdb.view.actresses.ActressController', {
 					if ((records[0].get('haspictures') > 0) && (appController.isOnline())) {
 						this.lookup('pictureButton').setHidden(false);
 					}
+					unmask(this.getView());
 				}
 			}, 
 			scope:this
@@ -45,7 +46,7 @@ Ext.define('filmdb.view.actresses.ActressController', {
 	},
 	
 	onPictureButtonTap: function(btn) {
-		var view = new filmdb.view.actresses.Pictures({actress_id: this.id, title: this.name});
+		var view = new filmdb.view.actresses.Pictures({actress_id: this.id, title: getNavTitle(this.name)});
 		appController.showView(view);
 		
 	}

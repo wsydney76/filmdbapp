@@ -3,7 +3,7 @@ Ext.define('filmdb.view.menu.Main', {
 
 	xtype: 'mainMenu',
 
-	requires: ['filmdb.view.menu.MainController', 'filmdb.view.search.Panel'],
+	requires: ['filmdb.view.menu.MainController', 'filmdb.view.search.Panel', 'filmdb.view.menu.Info'],
 
 	controller: 'menu-main',
 
@@ -16,6 +16,10 @@ Ext.define('filmdb.view.menu.Main', {
 		iconCls: 'x-fa fa-search',
 		itemId: 'searchButton',
 		reference: 'searchButton'
+	},{
+		text: 'Info',
+		iconCls: 'x-fa fa-info',
+		itemId: 'infoButton'
 	},{
 		text: 'dummy',
 		iconCls: 'x-fa fa-plane',

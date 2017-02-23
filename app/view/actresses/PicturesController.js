@@ -3,8 +3,13 @@ Ext.define('filmdb.view.actresses.PicturesController', {
 	alias: 'controller.actresses-pictures',
 
 	initViewModel: function(viewModel) {
+		mask(this.getView());
 		viewModel.getStore('pictures').load({
-			id: this.getView().actress_id
+			id: this.getView().actress_id,
+			callback: function(records, operation, success) {
+				unmask(this.getView());
+			},
+			scope: this
 		});
 	},
 

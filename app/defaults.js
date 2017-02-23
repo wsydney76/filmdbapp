@@ -4,7 +4,8 @@ defaults = {};
 
 defaults.urlbase = domain + '/filmdb/';
 
-defaults.animation = false; // 'slide'
+// Flickering on Android when hardware acceleration is enabled in cordova/platforms/android/androidManifest.xml
+//defaults.animation = Ext.os.is.Android ? false :  'slide'; 
 
 defaults.reader = {
 	rootProperty: 'data',
@@ -24,3 +25,4 @@ defaults.proxy = {
 		}
 	}
 };
+

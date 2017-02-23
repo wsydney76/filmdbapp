@@ -12,6 +12,9 @@ Ext.define('filmdb.view.menu.MainController', {
 		'#searchButton': {
 			tap: 'onSearchButtonTap'
 		},
+		'#infoButton': {
+			tap: 'onInfoButtonTap'
+		},
 
 		'#offlineButton': {
 			tap: 'onOfflineButtonTap'
@@ -38,6 +41,12 @@ Ext.define('filmdb.view.menu.MainController', {
 		var view = new filmdb.view.search.Panel({
 			title: 'Suche'
 		});
+		appController.showView(view);
+	},
+
+	onInfoButtonTap: function(btn) {
+		Ext.Viewport.hideMenu('left');		
+		var view = new filmdb.view.menu.Info({title:'Info'});
 		appController.showView(view);
 	},
 

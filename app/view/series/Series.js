@@ -15,7 +15,7 @@ Ext.define('filmdb.view.series.Series',{
 	bind:{
 		store: '{films}'
 	},
-
+		
 	grouped: true,
 	styleHtmlContent:true,
 	striped: true,

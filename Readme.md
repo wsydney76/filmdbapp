@@ -1,5 +1,16 @@
 # filmdb
 
+Archive of the very first FilmDBApp Prototype back in Febuary 2017...
+
+Hey, it still works, both with the legacy ColdFusion app and (with some minimal tweaks) 
+with the new fancy Craft CMS port!
+
+Run 
+* `sencha app build` for browser version
+* `sencha app build native` for android app version (requires Android SDK > 6.2.3 + Gradle build tool installed)  
+
+# Ext JS Read Me
+
 This folder is primarily a container for the top-level pieces of the application.
 While you can remove some files and folders that this application does not use,
 be sure to read below before deciding what can be deleted and what needs to be

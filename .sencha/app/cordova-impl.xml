@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
+<!--Make sure cordava is in path !!! -->
+
 <project name="Cordova" default="cordova-help">
     <!--Legacy properties file support-->
     <property file="${app.dir}/cordova.local.properties"/>

@@ -1,7 +1,7 @@
 
 Ext.define('filmdb.view.actresses.Actress',{
     extend: 'Ext.Container',
-    
+
 
     requires: [
         'filmdb.view.actresses.ActressController',
@@ -13,11 +13,11 @@ Ext.define('filmdb.view.actresses.Actress',{
     viewModel: {
         type: 'actresses-actress'
     },
-	
+
 	layout: 'vbox',
 	bodypadding:12,
-	
-	items: [ 
+
+	items: [
 		{
 			xtype:'container',
 			layout:	{
@@ -31,15 +31,15 @@ Ext.define('filmdb.view.actresses.Actress',{
 					store: '{actress}'
 				},
 				styleHtmlContent: true,
-				
-				itemTpl: [		
-					'<div class="containerblock">',	
-					'{[getActressImgTag(values.imagefile,"imagefloater")]}',	
-					'<b>{name}</b><br/>',			
-					'{[getStarsImgTag(values.stars)]}',			
+
+				itemTpl: [
+					'<div class="containerblock">',
+					'{[getActressImgTag(values.imagefile,values.imagepath,"imagefloater")]}',
+					'<b>{name}</b><br/>',
+					'{[getStarsImgTag(values.stars)]}',
 					'<br/>{birthday}',
 					'</div>'
-					
+
 				]
 			},{
 				xtype:'button',
@@ -47,12 +47,12 @@ Ext.define('filmdb.view.actresses.Actress',{
 				itemId: 'pictureButton',
 				margin:6,
 				iconCls:'x-fa fa-camera',
-				hidden: true			
+				hidden: true
 			}]
 		}
 	,{
 		xtype: 'list',
-		
+
 		bind: {
 			data: '{roles}'
 		},
@@ -60,15 +60,15 @@ Ext.define('filmdb.view.actresses.Actress',{
 		styleHtmlContent: true,
 		scrollable: true,
 		inline: window.innerWidth > 450,
-		
-		itemTpl: [		
-			'<div class="rolefloater">',	
+
+		itemTpl: [
+			'<div class="rolefloater">',
 			'<b>{series}</b> <br/>{title}<br>',
 			'{prodyear} ({age})',
-			'</div>'						
+			'</div>'
 		]
 	}
 	]
-	
-    
+
+
 });

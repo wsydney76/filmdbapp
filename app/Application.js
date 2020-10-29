@@ -11,8 +11,8 @@ Ext.define('filmdb.Application', {
 
 	name: 'filmdb',
 	controllers: ['appController'],
-	models: ['Series', 'Actress','Film','Picture'],
-	views: ['actresses.Actress','film.Film','menu.Main'],
+	models: ['Series', 'Actress','Film','Picture','Book','Author'],
+	views: ['actresses.Actress','film.Film','menu.Main','test.Promise','book.AuthorList'],
 
 	launch: function() {
 		appController = filmdb.app.getController('appController');

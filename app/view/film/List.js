@@ -22,10 +22,11 @@ Ext.define('filmdb.view.film.List',{
 	striped: true,
 	grouped: true,	
 	infinite: true,
+	itemHeight: 60,
 	
 	itemTpl:[
 		'<b>{title}</b><br/>',
-		'<tpl if="season != \'\'">{season}/{episode} </tpl>',
+		'<tpl if="season">{season}/{episode} </tpl>',
 		'{prodyear}'
 	],
 	items: [{

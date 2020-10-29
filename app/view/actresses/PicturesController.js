@@ -20,6 +20,6 @@ Ext.define('filmdb.view.actresses.PicturesController', {
 	},
 
 	onItemTap: function(list, index, target, record, e, eOpts) {
-		window.open(record.get('url'));
+		window.open(domain + '/pictures/' + record.get('url'));
 	}
 });

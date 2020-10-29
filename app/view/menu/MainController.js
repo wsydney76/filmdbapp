@@ -15,6 +15,9 @@ Ext.define('filmdb.view.menu.MainController', {
 		'#infoButton': {
 			tap: 'onInfoButtonTap'
 		},
+		'#bookListButton': {
+			tap: 'onBookListButtonTap'
+		},
 
 		'#offlineButton': {
 			tap: 'onOfflineButtonTap'
@@ -47,6 +50,12 @@ Ext.define('filmdb.view.menu.MainController', {
 	onInfoButtonTap: function(btn) {
 		Ext.Viewport.hideMenu('left');		
 		var view = new filmdb.view.menu.Info({title:'Info'});
+		appController.showView(view);
+	},
+
+	onBookListButtonTap: function(btn) {
+		Ext.Viewport.hideMenu('left');		
+		var view = new filmdb.view.book.AuthorList({title:'Autoren'});
 		appController.showView(view);
 	},
 

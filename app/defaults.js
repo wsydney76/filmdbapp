@@ -1,11 +1,13 @@
-domain = 'http://192.168.178.35';
+isLegacy = false;
+
+domain = isLegacy ? 'http://192.168.178.35' : 'http://192.168.178.35:8083';
 
 defaults = {};
 
 defaults.urlbase = domain + '/filmdb/';
 
 // Flickering on Android when hardware acceleration is enabled in cordova/platforms/android/androidManifest.xml
-//defaults.animation = Ext.os.is.Android ? false :  'slide'; 
+//defaults.animation = Ext.os.is.Android ? false :  'slide';
 
 defaults.reader = {
 	rootProperty: 'data',

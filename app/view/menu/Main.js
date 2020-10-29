@@ -21,6 +21,10 @@ Ext.define('filmdb.view.menu.Main', {
 		iconCls: 'x-fa fa-info',
 		itemId: 'infoButton'
 	},{
+		text: 'Bücher',
+		iconCls: 'x-fa fa-book',
+		itemId: 'bookListButton'
+	},{
 		text: 'dummy',
 		iconCls: 'x-fa fa-plane',
 		itemId: 'offlineButton',

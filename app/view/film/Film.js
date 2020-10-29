@@ -14,40 +14,38 @@ Ext.define('filmdb.view.film.Film',{
 
     layout: 'vbox',
 	bodypadding:12,
-	
+
 	items: [ {
 		xtype: 'dataview',
-		
+
 		bind: {
 			data: '{film}'
 		},
 		styleHtmlContent: true,
-		
-		itemTpl: [		
-			'<div class="containerblock">',	
+
+		itemTpl: [
+			'<div class="containerblock">',
 			'<b>{series}</b> <br/>',
 			'<b>{title}</b><br/>',
 			'<tpl if="season">Staffel {season} Episode {episode} </tpl>',
-			'{prodyear}',
-			'</div>'		
-		
-			
+			'{prodyear} ',
+			'{scene} {remark}',
+			'</div>'
 		]
 	},{
 		xtype:'dataview',
-		
+
 		bind: {
 			data: '{media}'
 		},
 		itemTpl: [
-			'<div class="media">',	
-			'{name} {location}',
-			'{filename}',
+			'<div class="media">',
+			'{name} {location} {filename}',
 			'</div>'
 		]
 	},{
 		xtype: 'list',
-		
+
 		bind: {
 			data: '{roles}'
 		},
@@ -55,17 +53,17 @@ Ext.define('filmdb.view.film.Film',{
 		styleHtmlContent: true,
 		scrollable: true,
 		inline: window.innerWidth > 450,
-		
-		itemTpl: [			
-			'<div class="rolefloater">',	
-			'{[getActressImgTag(values.imagefile,"imagefloater")]}',	
-			'<tpl if="lead==1"><b>{name}</b><br/></tpl>',			
+
+		itemTpl: [
+			'<div class="rolefloater">',
+			'{[getActressImgTag(values.imagefile,values.imagepath,"imagefloater")]}',
+			'<tpl if="lead==1"><b>{name}</b><br/></tpl>',
 			'<tpl if="lead==0">{name}<br/></tpl>',
-			'{[getStarsImgTag(values.stars)]}<br/>',				
+			'{[getStarsImgTag(values.stars)]}<br/>',
 			'{birthday} ({age})<br>',
 			'{rolename}',
 			'</div>'
-				
+
 		]
 	}
 	]

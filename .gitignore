@@ -1,6 +1,15 @@
+.idea
 /ext/
 /bootstrap.css
 /bootstrap.js
 /bootstrap.json
 /bootstrap.jsonp
 /build/
+.sencha
+.settings
+resources/data
+resources/data_orig
+cordova/node_modules
+cordova/platforms
+cordova/plugins
+cordova/www

@@ -2,16 +2,23 @@ function getStarsImgTag(stars) {
 	return '<img src="resources/images/stars-' + stars + '.gif"/> ';
 }
 
-function getActressImgTag(imagefile, cssclass) {
+function getActressImgTag(imagefile, imagepath, cssclass) {
 	if (appController.isOnline()) {
-		return '<img src="' + defaults.urlbase + 'images/production/' + imagefile + '" class="' + cssclass + '"/>';
+	    if (isCraft)
+		    return '<img src="' + defaults.urlbase + imagepath + '" class="' + cssclass + '"/>';
+	    else
+	        return '<img src="' + defaults.urlbase + 'images/production/' + imagefile + '" class="' + cssclass + '"/>';
 	} else {
 		return '<img src="resources/data/images/' + imagefile + '" class="' + cssclass + '"/>';
 	}
 }
 
-function getThumbnailImgTag(thumbnail, cssclass) {
-	return '<img src="' + domain + '/' + thumbnail + '" class="' + cssclass + '"/>';
+function getThumbnailImgTag(thumbnail,  cssclass) {
+    if (isCraft)
+	    return '<img src="' + domain + '/pictures/_galleryThumb/' + thumbnail + '" class="' + cssclass + '"/>';
+    else
+        return '<img src="' + domain + '/' + thumbnail + '" class="' + cssclass + '"/>';
+
 }
 
 function getPhotosImgTag() {

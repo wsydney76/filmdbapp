@@ -10,7 +10,7 @@ Run
 * `sencha app build native` for android app version (requires Android SDK > 6.2.3 + Gradle build tool installed)  
 
 PS.
-Yes, we used the generic feminimum 'actress' for boys and girls and everybody... 
+Yes, we used the generic femininum 'actress' for boys and girls and everybody... 
 
 # Ext JS Read Me
 

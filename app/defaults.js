@@ -1,6 +1,6 @@
-isLegacy = false;
+isCraft = true;
 
-domain = isLegacy ? 'http://192.168.178.35' : 'http://192.168.178.35:8083';
+domain = isCraft ? 'http://192.168.178.35:8083' : 'http://192.168.178.35';
 
 defaults = {};
 

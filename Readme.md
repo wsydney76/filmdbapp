@@ -9,6 +9,9 @@ Run
 * `sencha app build` for browser version
 * `sencha app build native` for android app version (requires Android SDK > 6.2.3 + Gradle build tool installed)  
 
+PS.
+Yes, we used the generic feminimum 'actress' for boys and girls and everybody... 
+
 # Ext JS Read Me
 
 This folder is primarily a container for the top-level pieces of the application.

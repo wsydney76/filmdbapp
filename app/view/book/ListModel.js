@@ -7,7 +7,7 @@ Ext.define('filmdb.view.book.ListModel', {
     		autoLoad: false,
     		groupField: 'name',
     		proxy: Ext.apply({
-    			url: defaults.urlbase + 'rest/books/',
+    			url: defaults.urlbase + 'authors/',
     			reader: defaults.reader
     		}, defaults.proxy)
     	}

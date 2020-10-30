@@ -1,8 +1,8 @@
 Ext.define('filmdb.view.menu.InfoModel', {
     extend: 'Ext.app.ViewModel',
     alias: 'viewmodel.menu-info',
-   
-    
+
+
 	stores: {
 		info: {
 			autoLoad:false,
@@ -14,7 +14,7 @@ Ext.define('filmdb.view.menu.InfoModel', {
 		published: {
 			autoLoad: false,
 			proxy: Ext.apply({
-				url: defaults.urlbase + 'rest/published.json/'
+				url: defaults.urlbase + 'published'
 			}, defaults.proxy)
 		}
 	}

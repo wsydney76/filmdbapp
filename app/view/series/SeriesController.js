@@ -9,13 +9,14 @@ Ext.define('filmdb.view.series.SeriesController', {
 		this.id = viewModel.getView().series_id;
 
 		if (appController.isOnline()) {
-			proxy.setUrl(proxy.getUrl() + this.id);
-			mask(this.getView());
-		} else {
-			proxy.setUrl('resources/data/series/' + this.id + '.json');
+            mask(this.getView());
+        } else {
+			proxy.setUrl('resources/data/series' );
 		}
-				
+
+
 		store.load({
+            id: viewModel.getView().series_id,
 			callback: function(records, operation, success) {
 				if (success) {
 					var films = [];

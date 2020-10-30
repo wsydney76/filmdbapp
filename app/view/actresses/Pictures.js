@@ -20,6 +20,6 @@ Ext.define('filmdb.view.actresses.Pictures',{
     inline:true,
 
     itemTpl: [
-    	'{[getThumbnailImgTag(values.thumbnail, "")]}'
+    	'{[getThumbnailImgTag(values.imageUrl, "")]}'
     ]
 });

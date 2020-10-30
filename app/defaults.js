@@ -1,10 +1,8 @@
-isCraft = true;
-
-domain = isCraft ? 'http://192.168.178.35:8083' : 'http://192.168.178.35';
+domain = 'http://192.168.178.35:8083';
 
 defaults = {};
 
-defaults.urlbase = domain + '/filmdb/';
+defaults.urlbase = domain + '/api/';
 
 // Flickering on Android when hardware acceleration is enabled in cordova/platforms/android/androidManifest.xml
 //defaults.animation = Ext.os.is.Android ? false :  'slide';

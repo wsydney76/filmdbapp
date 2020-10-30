@@ -6,7 +6,7 @@ Ext.define('filmdb.view.actresses.ActressModel', {
 		actress: {
 			model: 'filmdb.model.Actress',
 			proxy: Ext.apply({
-				url: defaults.urlbase + 'actresses/readall.json/'
+				url: defaults.urlbase + 'actresses/'
 			}, defaults.proxy)
 
 		}

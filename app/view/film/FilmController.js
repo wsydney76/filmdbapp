@@ -1,22 +1,21 @@
 Ext.define('filmdb.view.film.FilmController', {
 	extend: 'Ext.app.ViewController',
 	alias: 'controller.film-film',
-	
+
 	initViewModel: function(viewModel) {
-		
+
 		var store = viewModel.getStore('films');
 		var proxy = store.getProxy();
-		this.id = this.getView().film_id;
-		
+
 		if (appController.isOnline()) {
-			proxy.setUrl(proxy.getUrl() + this.id);;
-			mask(this.getView());
+            mask(this.getView());
+        } else {
+			proxy.setUrl('resources/data/film');
 		}
-		else {
-			proxy.setUrl('resources/data/film/' + this.id + '.json'); 
-		}
-		
-		store.load({			
+
+
+		store.load({
+            id: this.getView().film_id,
 			callback: function(records, operation, success) {
 				if (success)
 					viewModel.setData({
@@ -24,12 +23,12 @@ Ext.define('filmdb.view.film.FilmController', {
 						roles: records[0].get('roles'),
 						media: records[0].get('media')
 					});
-				
+
 				unmask(this.getView());
 			}, scope: this
 		});
 	},
-	
+
 	control: {
 		'list': {
 			itemtap: 'onItemTap'

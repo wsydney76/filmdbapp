@@ -15,7 +15,7 @@ Ext.define('filmdb.view.actresses.ListModel', {
 				}
 			},
 			proxy: Ext.apply({
-				url: defaults.urlbase + 'actresses/read.json',
+				url: defaults.urlbase + 'actresses',
 				reader: defaults.reader
 			}, defaults.proxy)
 

@@ -5,14 +5,12 @@ Ext.define('filmdb.view.book.ListController', {
 	initViewModel: function(viewModel) {
 		var store = viewModel.getStore('books');
 		var proxy = store.getProxy();
-		
-		var id = this.getView().author_id;
-		
-		if (appController.isOnline()) {
-			proxy.setUrl(proxy.getUrl() + id);
-		} else {
-			proxy.setUrl('resources/data/books/' + id + '.json');
+
+
+		if (! appController.isOnline()) {
+			proxy.setUrl('resources/data/books');
 		}
-		store.load();
+		
+		store.load({id:this.getView().author_id});
 	}
 });

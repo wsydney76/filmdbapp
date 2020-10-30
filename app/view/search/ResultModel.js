@@ -6,7 +6,7 @@ Ext.define('filmdb.view.search.ResultModel', {
 		results: {
 			pageSize: 0,
 			proxy: Ext.apply({
-				url: defaults.urlbase + 'search/search.json'
+				url: defaults.urlbase + 'search'
 			}, defaults.proxy)
 
 		}

@@ -10,7 +10,7 @@ Ext.define('filmdb.view.actresses.PicturesModel', {
 			pageSize: 999,
 			autoLoad: true,
 			proxy: Ext.apply({
-				url: defaults.urlbase + 'actresses/pictures.json',
+				url: defaults.urlbase + 'actresses/pictures',
 				reader: {
 					rootProperty: 'pictures',
 					successProperty: 'success'

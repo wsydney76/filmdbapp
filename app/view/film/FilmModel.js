@@ -6,7 +6,7 @@ Ext.define('filmdb.view.film.FilmModel', {
 		films: {
 			model: 'filmdb.model.Film',
 			proxy: Ext.apply({
-				url: defaults.urlbase + 'films/show.json/',
+				url: defaults.urlbase + 'films/',
 				extraParams: {
 					'includeImagedata': 'false'
 				}

@@ -9,7 +9,7 @@ Ext.define('filmdb.view.series.SeriesModel', {
 			model: 'filmdb.model.Series',
 
 			proxy: Ext.apply({
-				url: defaults.urlbase + 'series/fulldata.json/',
+				url: defaults.urlbase + 'series/',
 				reader: {
 					rootProperty: 'seasons'
 				}

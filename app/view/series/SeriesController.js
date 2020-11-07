@@ -19,8 +19,6 @@ Ext.define('filmdb.view.series.SeriesController', {
             id: viewModel.getView().series_id,
             callback: function(records, operation, success) {
 
-                x = records;
-
                 if (success) {
                     var films = [];
                     var seasons = records[0].get('seasons');
@@ -34,7 +32,7 @@ Ext.define('filmdb.view.series.SeriesController', {
 
                     seriesName = records[0].get('series').name;
 
-                    Ext.getCmp('seriesTitle').setHtml(`<h1 class="heading">${seriesName}k</h1>`)
+                    this.lookup('seriesTitle').setHtml(`<h1 class="heading">${seriesName}</h1>`)
 
                     unmask(this.getView());
                 }
@@ -54,7 +52,7 @@ Ext.define('filmdb.view.series.SeriesController', {
     },
 
     onItemTap: function(list, index, target, record, e, eOpts) {
-        appController.showFilm(record.getId(), record.get('title'));
+        this.redirectTo('film/' + record.getId());
     },
 
     onSearchfieldAction: function(textfield, e, options) {

@@ -29,16 +29,6 @@ Ext.define('filmdb.view.search.ResultController', {
     },
 
     onItemTap: function(list, index, target, record, e, eOpts) {
-        switch (record.get('type')) {
-            case 'actress':
-                appController.showActress(record.getId(), record.get('title'));
-                break;
-            case 'film':
-                appController.showFilm(record.getId(), record.get('title'));
-                break;
-            case 'series':
-                appController.showSeries(record.getId(), record.get('title'));
-                break;
-        }
+        this.redirectTo(record.get('type') + '/' + record.getId())
     }
 });

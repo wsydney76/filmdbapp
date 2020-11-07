@@ -37,6 +37,6 @@ Ext.define('filmdb.view.film.FilmController', {
     },
 
     onItemTap: function(list, index, target, record, e, eOpts) {
-        appController.showActress(record.get('actressid'), record.get('name'));
+        this.redirectTo('actress/' + record.get('actressid'));
     }
 });

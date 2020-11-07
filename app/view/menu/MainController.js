@@ -49,14 +49,12 @@ Ext.define('filmdb.view.menu.MainController', {
 
     onInfoButtonTap: function(btn) {
         Ext.Viewport.hideMenu('left');
-        var view = new filmdb.view.menu.Info({title: 'Info'});
-        appController.showView(view);
+        this.redirectTo('info');
     },
 
     onBookListButtonTap: function(btn) {
         Ext.Viewport.hideMenu('left');
-        var view = new filmdb.view.book.AuthorList({title: 'Autoren'});
-        appController.showView(view);
+        this.redirectTo('authors');
     },
 
     onOfflineButtonTap: function(btn) {

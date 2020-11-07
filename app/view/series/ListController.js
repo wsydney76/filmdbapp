@@ -24,7 +24,7 @@ Ext.define('filmdb.view.series.ListController', {
     },
 
     onItemTap: function(list, index, target, record, e, eOpts) {
-        appController.showSeries(record.getId(), record.get('name'));
+        this.redirectTo('series/' + record.getId());
     },
 
     onSearchfieldAction: function(textfield, e, options) {

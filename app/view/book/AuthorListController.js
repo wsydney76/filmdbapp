@@ -18,10 +18,6 @@ Ext.define('filmdb.view.book.AuthorListController', {
     },
 
     onItemTap: function(list, index, target, record, e, eOpts) {
-        var view = new filmdb.view.book.List({
-            author_id: record.getId(),
-            title: record.get('name')
-        });
-        appController.showView(view);
+       this.redirectTo('authors/' + record.getId());
     }
 });

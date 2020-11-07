@@ -43,13 +43,11 @@ Ext.define('filmdb.view.actresses.ActressController', {
     },
 
     onItemTap: function(list, index, target, record, e, eOpts) {
-        appController.showFilm(record.get('filmid'), record.get('title'));
+        this.redirectTo('film/' + record.get('filmid'));
     },
 
     onPictureButtonTap: function(btn) {
-        var view = new filmdb.view.actresses.Pictures({actress_id: this.id, title: getNavTitle(this.name)});
-        appController.showView(view);
-
+        this.redirectTo('pictures/' + this.id);
     }
 
 });

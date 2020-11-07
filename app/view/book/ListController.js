@@ -11,6 +11,19 @@ Ext.define('filmdb.view.book.ListController', {
             proxy.setUrl('resources/data/books');
         }
 
-        store.load({id: this.getView().author_id});
+        store.load({
+            id: this.getView().author_id,
+            callback: function(records, operation, success) {
+                r = records;
+                if (success) {
+                    viewModel.setData({
+                        author: records[0].get('author'),
+                    });
+                    store.setData(records[0].get('books'))
+                }
+
+            }, scope: this
+
+        });
     }
 });

@@ -32,15 +32,14 @@ Ext.define('filmdb.view.actresses.Actress', {
                     },
                     styleHtmlContent: true,
 
-                    itemTpl: [
-                        '<div class="containerblock">',
-                        '{[getActressImgTag(values.imagefile, values.imageurl,"imagefloater")]}',
-                        '<b>{name}</b><br/>',
-                        '{[getStarsImgTag(values.stars)]}',
-                        '<br/>{birthday}',
-                        '</div>'
-
-                    ]
+                    itemTpl: `
+                        <div class="containerblock">
+                            {[getActressImgTag(values.imagefile, values.imageurl,"imagefloater")]}
+                            <b>{name}</b><br/>
+                            {[getStarsImgTag(values.stars)]}
+                            <br/>{birthday}
+                        </div>
+                    `
                 }, {
                     xtype: 'button',
                     reference: 'pictureButton',
@@ -62,12 +61,12 @@ Ext.define('filmdb.view.actresses.Actress', {
             scrollable: true,
             inline: window.innerWidth > 450,
 
-            itemTpl: [
-                '<div class="rolefloater">',
-                '<b>{series}</b> <br/>{title}<br>',
-                '{prodyear} ({age})',
-                '</div>'
-            ]
+            itemTpl: `
+                <div class="rolefloater">
+                    <b>{series}</b> <br/>{title}<br>
+                    {prodyear} ({age})
+                </div>
+            `
         }
     ]
 

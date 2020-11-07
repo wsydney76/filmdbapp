@@ -12,18 +12,18 @@ Ext.define('filmdb.view.book.AuthorList',{
     viewModel: {
         type: 'book-authorlist'
     },
-    
+
     bind: {
     	store: '{authors}'
     },
-    
-    
+
+
     styleHtmlContent: true,
 	striped: true,
 	//infinite: true,
 	// itemHeight: 50,
 
-    itemTpl: [
-    	'<b>{firstname} {lastname}</b>'
-    ]
+    itemTpl: `
+    	<b>{firstname} {lastname}</b>
+    `
 });

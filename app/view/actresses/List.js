@@ -13,7 +13,7 @@ Ext.define('filmdb.view.actresses.List', {
 	bind: {
 		store: '{actresses}'
 	},
-	
+
 
 	styleHtmlContent: true,
 	striped: true,
@@ -22,10 +22,15 @@ Ext.define('filmdb.view.actresses.List', {
 
 	infinite:true,
 
-	itemTpl: ['<b>{firstname} {lastname}</b> {[getStarsImgTag(values.stars)]}', 
-		'<tpl if="values.haspictures != 0"> <span class="x-fa fa-camera iconspan"></span></tpl>',
-		'<br/>{birthday}'],
-	
+	itemTpl: `
+        <b>{firstname} {lastname}</b> 
+        {[getStarsImgTag(values.stars)]} 
+		<tpl if="values.haspictures != 0">
+		  <span class="x-fa fa-camera iconspan"></span>
+		</tpl>
+		<br/>{birthday}'
+		`,
+
 	items: [{
 		xtype: 'toolbar',
 		docked: 'top',

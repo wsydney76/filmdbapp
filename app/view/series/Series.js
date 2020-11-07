@@ -23,25 +23,24 @@ Ext.define('filmdb.view.series.Series',{
     infinite:true,
     itemHeight: 100,
 
-    itemTpl: [
-    	'<div class="seriestitle">{title}</div>',
-    	'<div class="seriesdata">',
-	    	'<tpl if="episode">',
-	    		'Episode: {episode} ',
-	    	'</tpl>',
-	    	'({nr}) {prodyear}',
-    	'</div>',
-    	'<div class="seriesroles">',
-	    	'<tpl for="roles">',
-	    		'<tpl if="lead &gt; 0">',
-	    			'<div class="seriesrole">',
-		    		'{name} ({age})',
-		    		'</div>',
-		    	'</tpl>',
-	    	'</tpl>',
-    	'</div>'
-
-    ],
+    itemTpl: `
+    	<div class="seriestitle">{title}</div>
+    	<div class="seriesdata">
+	    	<tpl if="episode">
+	    		Episode: {episode} 
+	    	</tpl>
+	    	({nr}) {prodyear}
+    	</div>
+    	<div class="seriesroles">
+	    	<tpl for="roles">
+	    		<tpl if="lead &gt; 0">
+	    			<div class="seriesrole">
+		    		  {name} ({age})
+		    		</div>
+		    	</tpl>
+	    	</tpl>
+    	</div>
+    `,
 
     items: [{
         xtype: 'toolbar',

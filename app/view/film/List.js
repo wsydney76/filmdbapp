@@ -13,22 +13,23 @@ Ext.define('filmdb.view.film.List',{
     viewModel: {
         type: 'film-list'
     },
-    
+
     bind: {
     	store: '{films}'
     },
-    
+
     styleHtmlContent: true,
 	striped: true,
-	grouped: true,	
+	grouped: true,
 	infinite: true,
 	itemHeight: 60,
-	
-	itemTpl:[
-		'<b>{title}</b><br/>',
-		'<tpl if="season">{season}/{episode} </tpl>',
-		'{prodyear}'
-	],
+
+	itemTpl: `
+		<b>{title}</b><br/>
+		<tpl if="season">{season}/{episode} </tpl>
+		{prodyear}
+	`,
+
 	items: [{
 		xtype: 'toolbar',
 		docked: 'top',

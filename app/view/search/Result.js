@@ -11,7 +11,7 @@ Ext.define('filmdb.view.search.Result',{
     viewModel: {
         type: 'search-result'
     },
-    
+
     layout: 'vbox',
 
     items:[{
@@ -19,22 +19,22 @@ Ext.define('filmdb.view.search.Result',{
     	bind: {
     		data: '{response}'
     	},
-    	itemTpl: [
-    		'<div class="containerblock"',
-    		'Treffer: {totalCount} in {time} msec',
-    		'</div>'
-    	]
+    	itemTpl: `
+    		<div class="containerblock"
+    		  Treffer: {totalCount} in {time} msec
+    		</div>
+    	`
     },{
     	xtype:'list',
     	flex:1,
     	bind: {
     		data: '{items}'
     	},
-    	itemTpl: [
-    		'{typename}: {title}<br/>',
-    		'<tpl for="highlight">',
-    			'{field}: {context}<br/>',
-    		'</tpl>'
-    	]
+    	itemTpl: `
+    		{typename}: {title}<br/>
+    		<tpl for="highlight">
+    			{field}: {context}<br/>
+    		</tpl>
+    	`
     }]
 });

@@ -27,10 +27,10 @@ Ext.define('filmdb.view.series.List',{
 	striped:true,
     infinite:true,
 
-    itemTpl : [
-    	'<b>{name}</b><br/>',
-    	'{station}'
-    ],
+    itemTpl : `
+    	<b>{name}</b><br/>
+    	{station}    	
+    `,
 
     items: [{
         xtype: 'toolbar',

@@ -15,28 +15,43 @@ Ext.define('filmdb.view.series.Series',{
 	bind:{
 		store: '{films}'
 	},
-		
+
 	grouped: true,
 	styleHtmlContent:true,
 	striped: true,
-	
-    itemTpl: [         	   	
+
+    infinite:true,
+    itemHeight: 100,
+
+    itemTpl: [
     	'<div class="seriestitle">{title}</div>',
     	'<div class="seriesdata">',
 	    	'<tpl if="episode">',
-	    		'Episode: {episode} ', 
+	    		'Episode: {episode} ',
 	    	'</tpl>',
-	    	'({nr}) {prodyear}',    	
+	    	'({nr}) {prodyear}',
     	'</div>',
     	'<div class="seriesroles">',
 	    	'<tpl for="roles">',
 	    		'<tpl if="lead &gt; 0">',
-	    			'<div class="seriesrole">',	    			    		
+	    			'<div class="seriesrole">',
 		    		'{name} ({age})',
-		    		'</div>',	    		
-		    	'</tpl>',		
+		    		'</div>',
+		    	'</tpl>',
 	    	'</tpl>',
     	'</div>'
-    	
-    ]
+
+    ],
+
+    items: [{
+        xtype: 'toolbar',
+        docked: 'top',
+        ui: 'light',
+        items: [ {
+            xtype: 'searchfield',
+            id: 'seriesDetailsFilterField',
+            placeHolder: 'Filter...',
+            width:300
+        }]
+    }],
 });

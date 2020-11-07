@@ -4,7 +4,12 @@ Ext.define('filmdb.view.series.ListController', {
 	control: {
 		'list': {
 			itemtap: 'onItemTap'
-		}
+		},
+        "#seriesListFilterField": {
+            action: 'onSearchfieldAction',
+            change: 'onSearchfieldAction',
+            clearicontap: 'onSearchfieldClearicontap'
+        }
 	},
 
 	onActivate: function() {
@@ -20,5 +25,21 @@ Ext.define('filmdb.view.series.ListController', {
 
 	onItemTap: function(list, index, target, record, e, eOpts) {
 		appController.showSeries(record.getId(), record.get('name'));
-	}
+	},
+
+    onSearchfieldAction : function(textfield, e, options) {
+        var value = textfield.getValue(), store = this.getViewModel().getStore('series');
+        store.clearFilter();
+        if (value) {
+            this.getView().refresh();
+            store.filter(function(record) {
+                return record.get('name').toUpperCase().indexOf(value.toUpperCase()) != -1;
+            });
+
+        }
+    },
+
+    onSearchfieldClearicontap : function(text, e, options) {
+        this.getViewModel().getStore('series').clearFilter();
+    }
 });

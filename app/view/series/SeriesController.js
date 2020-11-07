@@ -36,10 +36,31 @@ Ext.define('filmdb.view.series.SeriesController', {
 	control: {
 		'list': {
 			itemtap: 'onItemTap'
-		}
+		},
+        "#seriesDetailsFilterField": {
+            action: 'onSearchfieldAction',
+            change: 'onSearchfieldAction',
+            clearicontap: 'onSearchfieldClearicontap'
+        }
 	},
 
 	onItemTap: function(list, index, target, record, e, eOpts) {
 		appController.showFilm(record.getId(), record.get('title'));
-	}
+	},
+
+    onSearchfieldAction : function(textfield, e, options) {
+        var value = textfield.getValue(), store = this.getViewModel().getStore('films');
+        store.clearFilter();
+        if (value) {
+            this.getView().refresh();
+            store.filter(function(record) {
+                return record.get('title').toUpperCase().indexOf(value.toUpperCase()) != -1;
+            });
+
+        }
+    },
+
+    onSearchfieldClearicontap : function(text, e, options) {
+        this.getViewModel().getStore('films').clearFilter();
+    }
 });

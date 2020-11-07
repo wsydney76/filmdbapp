@@ -1,8 +1,7 @@
-
-Ext.define('filmdb.view.film.List',{
+Ext.define('filmdb.view.film.List', {
     extend: 'Ext.dataview.List',
 
-	xtype: 'filmList',
+    xtype: 'filmList',
 
     requires: [
         'filmdb.view.film.ListController',
@@ -15,40 +14,44 @@ Ext.define('filmdb.view.film.List',{
     },
 
     bind: {
-    	store: '{films}'
+        store: '{films}'
     },
 
     styleHtmlContent: true,
-	striped: true,
-	grouped: true,
-	infinite: true,
-	itemHeight: 60,
+    striped: true,
+    grouped: true,
+    infinite: true,
+    itemHeight: 60,
 
-	itemTpl: `
+    itemTpl: `
 		<b>{title}</b><br/>
 		<tpl if="season">{season}/{episode} </tpl>
 		{prodyear}
 	`,
 
-	items: [{
-		xtype: 'toolbar',
-		docked: 'top',
-		ui: 'light',
-		items: [ {
-			xtype: 'searchfield',
-			itemId: 'filmFilterField',
-			placeHolder: 'Filter...',
-			width:220
-		},{
-			xtype: 'button',
-			itemId: 'sortButton',
-			reference: 'sortButton',
-			iconCls: 'x-fa fa-sort',
-			text: 'Datum'
-		}]
-	}],
-	listeners: {
-		// activate fires too early
-		painted: 'onActivate'
-	}
+    items: [
+        {
+            xtype: 'toolbar',
+            docked: 'top',
+            ui: 'light',
+            items: [
+                {
+                    xtype: 'searchfield',
+                    itemId: 'filmFilterField',
+                    placeHolder: 'Filter...',
+                    width: 220
+                }, {
+                    xtype: 'button',
+                    itemId: 'sortButton',
+                    reference: 'sortButton',
+                    iconCls: 'x-fa fa-sort',
+                    text: 'Datum'
+                }
+            ]
+        }
+    ],
+    listeners: {
+        // activate fires too early
+        painted: 'onActivate'
+    }
 });

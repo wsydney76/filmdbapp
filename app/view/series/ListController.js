@@ -1,33 +1,33 @@
 Ext.define('filmdb.view.series.ListController', {
-	extend: 'Ext.app.ViewController',
-	alias: 'controller.series-list',
-	control: {
-		'list': {
-			itemtap: 'onItemTap'
-		},
+    extend: 'Ext.app.ViewController',
+    alias: 'controller.series-list',
+    control: {
+        'list': {
+            itemtap: 'onItemTap'
+        },
         "#seriesListFilterField": {
             action: 'onSearchfieldAction',
             change: 'onSearchfieldAction',
             clearicontap: 'onSearchfieldClearicontap'
         }
-	},
+    },
 
-	onActivate: function() {
-		var store = this.getViewModel().getStore('series');
-		if (! store.isLoaded()) {
-			if (! appController.isOnline()) {
-				Ext.toast('Benutze Offline-Daten');
-				store.getProxy().setUrl('resources/data/series.json');
-			}
-			store.load();
-		}
-	},
+    onActivate: function() {
+        var store = this.getViewModel().getStore('series');
+        if (!store.isLoaded()) {
+            if (!appController.isOnline()) {
+                Ext.toast('Benutze Offline-Daten');
+                store.getProxy().setUrl('resources/data/series.json');
+            }
+            store.load();
+        }
+    },
 
-	onItemTap: function(list, index, target, record, e, eOpts) {
-		appController.showSeries(record.getId(), record.get('name'));
-	},
+    onItemTap: function(list, index, target, record, e, eOpts) {
+        appController.showSeries(record.getId(), record.get('name'));
+    },
 
-    onSearchfieldAction : function(textfield, e, options) {
+    onSearchfieldAction: function(textfield, e, options) {
         var value = textfield.getValue(), store = this.getViewModel().getStore('series');
         store.clearFilter();
         if (value) {
@@ -39,7 +39,7 @@ Ext.define('filmdb.view.series.ListController', {
         }
     },
 
-    onSearchfieldClearicontap : function(text, e, options) {
+    onSearchfieldClearicontap: function(text, e, options) {
         this.getViewModel().getStore('series').clearFilter();
     }
 });

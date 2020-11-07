@@ -1,5 +1,4 @@
-
-Ext.define('filmdb.view.actresses.Pictures',{
+Ext.define('filmdb.view.actresses.Pictures', {
     extend: 'Ext.dataview.List',
 
     requires: [
@@ -12,12 +11,12 @@ Ext.define('filmdb.view.actresses.Pictures',{
         type: 'actresses-pictures'
     },
 
-	bind: {
-		store: '{pictures}'
-	},
+    bind: {
+        store: '{pictures}'
+    },
 
     styleHtmlContent: true,
-    inline:true,
+    inline: true,
 
     itemTpl: `
     	{[getThumbnailImgTag(values.imageUrl, "")]}

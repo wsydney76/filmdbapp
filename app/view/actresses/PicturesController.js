@@ -1,25 +1,25 @@
 Ext.define('filmdb.view.actresses.PicturesController', {
-	extend: 'Ext.app.ViewController',
-	alias: 'controller.actresses-pictures',
+    extend: 'Ext.app.ViewController',
+    alias: 'controller.actresses-pictures',
 
-	initViewModel: function(viewModel) {
-		mask(this.getView());
-		viewModel.getStore('pictures').load({
-			id: this.getView().actress_id,
-			callback: function(records, operation, success) {
-				unmask(this.getView());
-			},
-			scope: this
-		});
-	},
+    initViewModel: function(viewModel) {
+        mask(this.getView());
+        viewModel.getStore('pictures').load({
+            id: this.getView().actress_id,
+            callback: function(records, operation, success) {
+                unmask(this.getView());
+            },
+            scope: this
+        });
+    },
 
-	control: {
-		'list': {
-			itemTap: 'onItemTap'
-		}
-	},
+    control: {
+        'list': {
+            itemTap: 'onItemTap'
+        }
+    },
 
-	onItemTap: function(list, index, target, record, e, eOpts) {
-		window.open(domain + '/pictures/' + record.get('url'));
-	}
+    onItemTap: function(list, index, target, record, e, eOpts) {
+        window.open(domain + '/pictures/' + record.get('url'));
+    }
 });

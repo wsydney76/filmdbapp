@@ -1,28 +1,28 @@
 Ext.define('filmdb.view.actresses.List', {
-	extend: 'Ext.dataview.List',
+    extend: 'Ext.dataview.List',
 
-	xtype: 'actressList',
+    xtype: 'actressList',
 
-	requires: ['filmdb.view.actresses.ListController', 'filmdb.view.actresses.ListModel'],
+    requires: ['filmdb.view.actresses.ListController', 'filmdb.view.actresses.ListModel'],
 
-	controller: 'actresses-list',
-	viewModel: {
-		type: 'actresses-list'
-	},
+    controller: 'actresses-list',
+    viewModel: {
+        type: 'actresses-list'
+    },
 
-	bind: {
-		store: '{actresses}'
-	},
+    bind: {
+        store: '{actresses}'
+    },
 
 
-	styleHtmlContent: true,
-	striped: true,
-	grouped: true,
-	indexBar: true,
+    styleHtmlContent: true,
+    striped: true,
+    grouped: true,
+    indexBar: true,
 
-	infinite:true,
+    infinite: true,
 
-	itemTpl: `
+    itemTpl: `
         <b>{firstname} {lastname}</b> 
         {[getStarsImgTag(values.stars)]} 
 		<tpl if="values.haspictures != 0">
@@ -31,20 +31,24 @@ Ext.define('filmdb.view.actresses.List', {
 		<br/>{birthday}'
 		`,
 
-	items: [{
-		xtype: 'toolbar',
-		docked: 'top',
-		ui: 'light',
-		items: [ {
-			xtype: 'searchfield',
-			id: 'actressFilterField',
-			placeHolder: 'Filter...',
-			width:300
-		}]
-	}],
-	listeners: {
-		// activate fires too early
-		painted: 'onActivate'
-	}
+    items: [
+        {
+            xtype: 'toolbar',
+            docked: 'top',
+            ui: 'light',
+            items: [
+                {
+                    xtype: 'searchfield',
+                    id: 'actressFilterField',
+                    placeHolder: 'Filter...',
+                    width: 300
+                }
+            ]
+        }
+    ],
+    listeners: {
+        // activate fires too early
+        painted: 'onActivate'
+    }
 
 });

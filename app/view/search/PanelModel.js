@@ -1,28 +1,30 @@
 Ext.define('filmdb.view.search.PanelModel', {
-	extend: 'Ext.app.ViewModel',
-	alias: 'viewmodel.search-panel',
-	data: {
-		name: 'filmdb'
-	},
+    extend: 'Ext.app.ViewModel',
+    alias: 'viewmodel.search-panel',
+    data: {
+        name: 'filmdb'
+    },
 
-	stores: {
+    stores: {
 
-		searches: {
-			fields: ['search', 'timestamp'],
+        searches: {
+            fields: ['search', 'timestamp'],
 
-			autoLoad: true,
-			autoSync: true,
+            autoLoad: true,
+            autoSync: true,
 
-			sorters: [{
-				property: 'timestamp',
-				direction: 'desc'
-			}],
+            sorters: [
+                {
+                    property: 'timestamp',
+                    direction: 'desc'
+                }
+            ],
 
-			proxy: {
-				type: 'localstorage',
-				id: 'filmdb_searches'
-			}
-		}
-	}
+            proxy: {
+                type: 'localstorage',
+                id: 'filmdb_searches'
+            }
+        }
+    }
 
 });

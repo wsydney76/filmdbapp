@@ -1,8 +1,7 @@
-
-Ext.define('filmdb.view.search.Panel',{
+Ext.define('filmdb.view.search.Panel', {
     extend: 'Ext.Container',
 
-	xtype: 'searchPanel',
+    xtype: 'searchPanel',
 
     requires: [
         'filmdb.view.search.PanelController',
@@ -14,34 +13,39 @@ Ext.define('filmdb.view.search.Panel',{
     viewModel: {
         type: 'search-panel'
     },
-	
-	layout:'vbox',
 
-    items: [{
-    	xtype: 'panel',
-    	layout: 'hbox',    	
-    	items: [{
-    		xtype:'searchfield',
-    		reference:'searchField',
-    		width:'50%',
-    		value:''
-    	},{
-    		xtype:'button',
-    		text:'Suche',
-    		ui:'action'
-    	}]
-    },{
-    		xtype:'list',
-    		flex:1,
-    		bind:{
-    			store: '{searches}'
-    		},
-    		itemTpl: '{search}',
-    		items:[{
-    			docked:'top',
-    			html:'<b>Letzte Suchen:</b>'
-    		}]
-    	}
-    
+    layout: 'vbox',
+
+    items: [
+        {
+            xtype: 'panel',
+            layout: 'hbox',
+            items: [
+                {
+                    xtype: 'searchfield',
+                    reference: 'searchField',
+                    width: '50%',
+                    value: ''
+                }, {
+                    xtype: 'button',
+                    text: 'Suche',
+                    ui: 'action'
+                }
+            ]
+        }, {
+            xtype: 'list',
+            flex: 1,
+            bind: {
+                store: '{searches}'
+            },
+            itemTpl: '{search}',
+            items: [
+                {
+                    docked: 'top',
+                    html: '<b>Letzte Suchen:</b>'
+                }
+            ]
+        }
+
     ]
 });

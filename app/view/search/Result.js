@@ -1,5 +1,4 @@
-
-Ext.define('filmdb.view.search.Result',{
+Ext.define('filmdb.view.search.Result', {
     extend: 'Ext.Container',
 
     requires: [
@@ -14,27 +13,29 @@ Ext.define('filmdb.view.search.Result',{
 
     layout: 'vbox',
 
-    items:[{
-    	xtype: 'dataview',
-    	bind: {
-    		data: '{response}'
-    	},
-    	itemTpl: `
+    items: [
+        {
+            xtype: 'dataview',
+            bind: {
+                data: '{response}'
+            },
+            itemTpl: `
     		<div class="containerblock"
     		  Treffer: {totalCount} in {time} msec
     		</div>
     	`
-    },{
-    	xtype:'list',
-    	flex:1,
-    	bind: {
-    		data: '{items}'
-    	},
-    	itemTpl: `
+        }, {
+            xtype: 'list',
+            flex: 1,
+            bind: {
+                data: '{items}'
+            },
+            itemTpl: `
     		{typename}: {title}<br/>
     		<tpl for="highlight">
     			{field}: {context}<br/>
     		</tpl>
     	`
-    }]
+        }
+    ]
 });

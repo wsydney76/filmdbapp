@@ -1,5 +1,4 @@
-
-Ext.define('filmdb.view.test.Promise',{
+Ext.define('filmdb.view.test.Promise', {
     extend: 'Ext.dataview.List',
 
     requires: [
@@ -11,12 +10,12 @@ Ext.define('filmdb.view.test.Promise',{
     viewModel: {
         type: 'test-promise'
     },
-    
+
     bind: {
-    	data : '{films}'
+        data: '{films}'
     },
 
-    itemTpl :[
-    	'{title}'
+    itemTpl: [
+        '{title}'
     ]
 });

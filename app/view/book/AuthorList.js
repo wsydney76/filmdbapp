@@ -1,5 +1,4 @@
-
-Ext.define('filmdb.view.book.AuthorList',{
+Ext.define('filmdb.view.book.AuthorList', {
     extend: 'Ext.dataview.List',
 
     requires: [
@@ -14,14 +13,14 @@ Ext.define('filmdb.view.book.AuthorList',{
     },
 
     bind: {
-    	store: '{authors}'
+        store: '{authors}'
     },
 
 
     styleHtmlContent: true,
-	striped: true,
-	//infinite: true,
-	// itemHeight: 50,
+    striped: true,
+    //infinite: true,
+    // itemHeight: 50,
 
     itemTpl: `
     	<b>{firstname} {lastname}</b>

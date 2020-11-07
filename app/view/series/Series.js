@@ -1,5 +1,4 @@
-
-Ext.define('filmdb.view.series.Series',{
+Ext.define('filmdb.view.series.Series', {
     extend: 'Ext.dataview.List',
 
     requires: [
@@ -12,15 +11,17 @@ Ext.define('filmdb.view.series.Series',{
         type: 'series-series'
     },
 
-	bind:{
-		store: '{films}'
-	},
+    bind: {
+        store: '{films}'
+    },
 
-	grouped: true,
-	styleHtmlContent:true,
-	striped: true,
+    title: 'HUHU',
 
-    infinite:true,
+    grouped: true,
+    styleHtmlContent: true,
+    striped: true,
+
+    infinite: true,
     itemHeight: 100,
 
     itemTpl: `
@@ -42,15 +43,25 @@ Ext.define('filmdb.view.series.Series',{
     	</div>
     `,
 
-    items: [{
-        xtype: 'toolbar',
-        docked: 'top',
-        ui: 'light',
-        items: [ {
-            xtype: 'searchfield',
-            id: 'seriesDetailsFilterField',
-            placeHolder: 'Filter...',
-            width:300
-        }]
-    }],
+    items: [
+        {
+            xtype: 'panel',
+            docked: 'top',
+            html: '<h1 id="seriesTitle" class="heading">Title</h1>'
+
+        },
+        {
+            xtype: 'toolbar',
+            docked: 'top',
+            ui: 'light',
+            items: [
+                {
+                    xtype: 'searchfield',
+                    id: 'seriesDetailsFilterField',
+                    placeHolder: 'Filter...',
+                    width: 300
+                }
+            ]
+        }
+    ],
 });

@@ -5,30 +5,29 @@
  */
 
 
-
 Ext.define('filmdb.Application', {
-	extend: 'Ext.app.Application',
+    extend: 'Ext.app.Application',
 
-	name: 'filmdb',
-	controllers: ['appController'],
-	models: ['Series', 'Actress','Film','Picture','Book','Author'],
-	views: ['actresses.Actress','film.Film','menu.Main','test.Promise','book.AuthorList'],
+    name: 'filmdb',
+    controllers: ['appController'],
+    models: ['Series', 'Actress', 'Film', 'Picture', 'Book', 'Author'],
+    views: ['actresses.Actress', 'film.Film', 'menu.Main', 'test.Promise', 'book.AuthorList'],
 
-	launch: function() {
-		appController = filmdb.app.getController('appController');
-		document.addEventListener("backbutton", appController.goBack, false);
-		Ext.Viewport.setMenu({
-			xtype: 'mainMenu'
-		}, {
-			side: 'left'
-		});
-	},
+    launch: function() {
+        appController = filmdb.app.getController('appController');
+        document.addEventListener("backbutton", appController.goBack, false);
+        Ext.Viewport.setMenu({
+            xtype: 'mainMenu'
+        }, {
+            side: 'left'
+        });
+    },
 
-	onAppUpdate: function() {
-		Ext.Msg.confirm('Application Update', 'This application has an update, reload?', function(choice) {
-			if (choice === 'yes') {
-				window.location.reload();
-			}
-		});
-	}
+    onAppUpdate: function() {
+        Ext.Msg.confirm('Application Update', 'This application has an update, reload?', function(choice) {
+            if (choice === 'yes') {
+                window.location.reload();
+            }
+        });
+    }
 });

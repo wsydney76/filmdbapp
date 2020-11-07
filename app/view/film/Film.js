@@ -1,5 +1,4 @@
-
-Ext.define('filmdb.view.film.Film',{
+Ext.define('filmdb.view.film.Film', {
     extend: 'Ext.Container',
 
     requires: [
@@ -13,20 +12,21 @@ Ext.define('filmdb.view.film.Film',{
     },
 
     layout: 'vbox',
-	bodypadding:12,
+    bodypadding: 12,
 
-	items: [ {
-		xtype: 'dataview',
+    items: [
+        {
+            xtype: 'dataview',
 
-		bind: {
-			data: '{film}'
-		},
-		styleHtmlContent: true,
+            bind: {
+                data: '{film}'
+            },
+            styleHtmlContent: true,
 
-		itemTpl: `
+            itemTpl: `
 			<div class="containerblock">
                 <b>{series}</b> <br/>
-                <b>{title}</b><br/>
+                <h1 class="heading">{title}</h1><br/>
                 <tpl if="season">
                   Staffel {season} Episode {episode} 
                 </tpl>
@@ -34,29 +34,29 @@ Ext.define('filmdb.view.film.Film',{
                 {scene} {remark}
 			</div>
 		`
-	},{
-		xtype:'dataview',
+        }, {
+            xtype: 'dataview',
 
-		bind: {
-			data: '{media}'
-		},
-		itemTpl: `
+            bind: {
+                data: '{media}'
+            },
+            itemTpl: `
 			<div class="media">
 			  {name} {location} {filename}
 			</div>
 		`
-	},{
-		xtype: 'list',
+        }, {
+            xtype: 'list',
 
-		bind: {
-			data: '{roles}'
-		},
-		flex:1,
-		styleHtmlContent: true,
-		scrollable: true,
-		inline: window.innerWidth > 450,
+            bind: {
+                data: '{roles}'
+            },
+            flex: 1,
+            styleHtmlContent: true,
+            scrollable: true,
+            inline: window.innerWidth > 450,
 
-		itemTpl: `
+            itemTpl: `
 			<div class="rolefloater">
                 {[getActressImgTag(values.imagefile,values.imageurl,"imagefloater")]}
                 <tpl if="lead==1"><b>{name}</b><br/></tpl>
@@ -66,6 +66,6 @@ Ext.define('filmdb.view.film.Film',{
                 {rolename}
 			</div>
 		`
-	}
-	]
+        }
+    ]
 });

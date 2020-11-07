@@ -35,7 +35,7 @@ Ext.define('filmdb.view.actresses.Actress', {
                     itemTpl: `
                         <div class="containerblock">
                             {[getActressImgTag(values.imagefile, values.imageurl,"imagefloater")]}
-                            <b>{name}</b><br/>
+                            <h1 class="heading">{name}</h1><br/>
                             {[getStarsImgTag(values.stars)]}
                             <br/>{birthday}
                         </div>
@@ -62,7 +62,7 @@ Ext.define('filmdb.view.actresses.Actress', {
             inline: window.innerWidth > 450,
 
             itemTpl: `
-                <div class="rolefloater">
+                <div class="rolefloater my">
                     <b>{series}</b> <br/>{title}<br>
                     {prodyear} ({age})
                 </div>

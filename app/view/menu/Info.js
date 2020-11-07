@@ -1,20 +1,21 @@
 Ext.define('filmdb.view.menu.Info', {
-	extend: 'Ext.Container',
+    extend: 'Ext.Container',
 
-	requires: ['filmdb.view.menu.InfoController', 'filmdb.view.menu.InfoModel'],
+    requires: ['filmdb.view.menu.InfoController', 'filmdb.view.menu.InfoModel'],
 
-	controller: 'menu-info',
-	viewModel: {
-		type: 'menu-info'
-	},
+    controller: 'menu-info',
+    viewModel: {
+        type: 'menu-info'
+    },
 
-	items: [{
-		xtype: 'dataview',
-		bind: {
-			store: '{published}'
-		},
+    items: [
+        {
+            xtype: 'dataview',
+            bind: {
+                store: '{published}'
+            },
 
-		itemTpl: `
+            itemTpl: `
 			<div class="containerblock">
 				<p class="infotitle">Server-Zustand:</p>
 				{lastUpdate}: Letzter Update<br/>
@@ -24,13 +25,13 @@ Ext.define('filmdb.view.menu.Info', {
 				{action}
 			</div>
 		`
-	},{
-		xtype: 'dataview',
-		bind: {
-			store: '{info}'
-		},
+        }, {
+            xtype: 'dataview',
+            bind: {
+                store: '{info}'
+            },
 
-		itemTpl: `
+            itemTpl: `
 		<div class="containerblock"> 
 			<p class="infotitle">Stand der Offline-Daten:</p> 
 			{ts}
@@ -38,18 +39,19 @@ Ext.define('filmdb.view.menu.Info', {
 			<a href="http://192.168.178.35/filmdbapp/cordova/platforms/android/build/outputs/apk/android-debug.apk" target="_blank"">Download</a> 
 		</div>
 		`
-	},{
-		xtype: 'dataview',
-		bind: {
-			data: '{message}'
-		},
-		styleHtmlContent:true,
-		itemTpl: `
+        }, {
+            xtype: 'dataview',
+            bind: {
+                data: '{message}'
+            },
+            styleHtmlContent: true,
+            itemTpl: `
             <div class="containerblock"> 
                 <p class="infotitle" style="color:red">{warning}</p>
                 <p class="infotitle">{info}</p>
             </div>'
 		`
-	}]
+        }
+    ]
 });
 

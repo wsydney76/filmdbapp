@@ -5,17 +5,17 @@
  * TODO - Replace this content of this view to suite the needs of your application.
  */
 Ext.define('filmdb.view.main.MainController', {
-	extend: 'Ext.app.ViewController',
+    extend: 'Ext.app.ViewController',
 
-	alias: 'controller.main',
+    alias: 'controller.main',
 
-	control: {
-		'#menuButton': {
-			tap : 'onMenuButtonTap'
-		}
-	},
+    control: {
+        '#menuButton': {
+            tap: 'onMenuButtonTap'
+        }
+    },
 
-	onMenuButtonTap: function() {
-		Ext.Viewport.toggleMenu('left');
-	}
+    onMenuButtonTap: function() {
+        Ext.Viewport.toggleMenu('left');
+    }
 });

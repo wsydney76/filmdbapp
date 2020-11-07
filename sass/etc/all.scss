@@ -1,34 +1,35 @@
 /*
  * This is is imported by virtue of "sass.etc" in "app.json".
+ * Run sencha app watch and call http://localhost:1841/?platformTags=fashion:1 for live updates
  */
- 
+
  .containerblock {
  	padding:12px;
  	font-size:1.2em
  }
- 
+
  .dockeditem {
  	font-weight:bold;
  	font-size:1.1em
  }
- 
+
  .imagefloater {
  	float:left;
  	margin-right:12px;
  }
- 
+
  .seriestitle{
  	font-weight:bold;
  }
- 
+
  .seriesdata {
  	margin-top:6px;
  	margin-left:12px;
  }
- 
+
 .seriesrole {
 	margin-top:4px;
-	margin-left:12px;	
+	margin-left:12px;
 	float:left;
 }
 
@@ -57,4 +58,18 @@
 
 .iconspan {
 	color:var(--base-color)
+}
+
+.heading {
+  font-size:24px;
+  font-weight: bold;
+}
+
+.mb {
+  margin-bottom: 12px;
+}
+
+.my {
+  margin-top: 12px;
+  margin-bottom: 12px;
 }

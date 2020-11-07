@@ -1,10 +1,9 @@
-
-Ext.define('filmdb.view.series.List',{
+Ext.define('filmdb.view.series.List', {
     extend: 'Ext.dataview.List',
 
     xtype: 'seriesList',
 
-	id: 'seriesList',
+    id: 'seriesList',
 
     requires: [
         'filmdb.view.series.ListController',
@@ -15,7 +14,7 @@ Ext.define('filmdb.view.series.List',{
     baseCls: 'series',
 
     bind: {
-    	store: '{series}'
+        store: '{series}'
     },
 
     controller: 'series-list',
@@ -23,30 +22,34 @@ Ext.define('filmdb.view.series.List',{
         type: 'series-list'
     },
 
-	styleHtmlContent:true,
-	striped:true,
-    infinite:true,
+    styleHtmlContent: true,
+    striped: true,
+    infinite: true,
 
-    itemTpl : `
+    itemTpl: `
     	<b>{name}</b><br/>
     	{station}    	
     `,
 
-    items: [{
-        xtype: 'toolbar',
-        docked: 'top',
-        ui: 'light',
-        items: [ {
-            xtype: 'searchfield',
-            id: 'seriesListFilterField',
-            placeHolder: 'Filter...',
-            width:300
-        }]
-    }],
+    items: [
+        {
+            xtype: 'toolbar',
+            docked: 'top',
+            ui: 'light',
+            items: [
+                {
+                    xtype: 'searchfield',
+                    id: 'seriesListFilterField',
+                    placeHolder: 'Filter...',
+                    width: 300
+                }
+            ]
+        }
+    ],
 
-	listeners: {
-		// activate fires too early
-		painted: 'onActivate'
-	}
+    listeners: {
+        // activate fires too early
+        painted: 'onActivate'
+    }
 
 });

@@ -10,9 +10,6 @@ Ext.define('filmdb.view.series.SeriesModel', {
 
             proxy: Ext.apply({
                 url: defaults.urlbase + 'series/',
-                reader: {
-                    rootProperty: 'seasons'
-                }
             }, defaults.proxy)
 
         },

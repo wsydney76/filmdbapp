@@ -47,7 +47,8 @@ Ext.define('filmdb.view.series.Series', {
         {
             xtype: 'panel',
             docked: 'top',
-            html: '<h1 id="seriesTitle" class="heading">Title</h1>'
+            id: 'seriesTitle',
+            html: '<h1 class="heading">Title</h1>'
 
         },
         {

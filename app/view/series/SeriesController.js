@@ -23,13 +23,18 @@ Ext.define('filmdb.view.series.SeriesController', {
 
                 if (success) {
                     var films = [];
-                    for (var i = 0; i < records.length; i++) {
-                        var tmp = records[i].get('films');
+                    var seasons = records[0].get('seasons');
+                    for (var i = 0; i < seasons.length; i++) {
+                        var tmp = seasons[i].films;
                         for (var j = 0; j < tmp.length; j++) {
                             films.push(tmp[j]);
                         }
                     }
                     viewModel.getStore('films').setData(films);
+
+                    seriesName = records[0].get('series').name;
+
+                    Ext.getCmp('seriesTitle').setHtml(`<h1 class="heading">${seriesName}k</h1>`)
 
                     unmask(this.getView());
                 }

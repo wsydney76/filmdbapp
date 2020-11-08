@@ -19,7 +19,7 @@ Ext.define('filmdb.Application', {
         Ext.Viewport.setMenu({
             xtype: 'mainMenu'
         }, {
-            side: 'left'
+            side: 'right'
         });
     },
 

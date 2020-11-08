@@ -8,7 +8,10 @@ Ext.define('filmdb.view.actresses.ListController', {
         },
         "#actressFilterField": {
             action: 'onSearchfieldAction',
-            change: 'onSearchfieldAction',
+            change: {
+                fn: 'onSearchfieldAction',
+                buffer: defaults.buffer
+            },
             clearicontap: 'onSearchfieldClearicontap'
         }
     },

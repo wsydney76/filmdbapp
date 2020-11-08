@@ -7,7 +7,10 @@ Ext.define('filmdb.view.series.ListController', {
         },
         "#seriesListFilterField": {
             action: 'onSearchfieldAction',
-            change: 'onSearchfieldAction',
+            change: {
+                fn: 'onSearchfieldAction',
+                buffer: defaults.buffer
+            },
             clearicontap: 'onSearchfieldClearicontap'
         }
     },

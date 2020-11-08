@@ -15,14 +15,13 @@ Ext.define('filmdb.view.series.Series', {
         store: '{films}'
     },
 
-    title: 'HUHU',
 
     grouped: true,
     styleHtmlContent: true,
     striped: true,
 
-    infinite: true,
-    itemHeight: 100,
+    // infinite: true,
+    // itemHeight: 100,
 
     itemTpl: `
     	<div class="seriestitle">{title}</div>

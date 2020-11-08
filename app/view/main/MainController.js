@@ -14,9 +14,9 @@ Ext.define('filmdb.view.main.MainController', {
         }
     },
 
-    
+
 
     onMenuButtonTap: function() {
-        Ext.Viewport.toggleMenu('left');
+        Ext.Viewport.toggleMenu('right');
     }
 });

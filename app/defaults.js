@@ -26,3 +26,5 @@ defaults.proxy = {
     }
 };
 
+defaults.buffer = 500;
+

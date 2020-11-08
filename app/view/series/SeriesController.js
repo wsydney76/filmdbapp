@@ -46,7 +46,10 @@ Ext.define('filmdb.view.series.SeriesController', {
         },
         "#seriesDetailsFilterField": {
             action: 'onSearchfieldAction',
-            change: 'onSearchfieldAction',
+            change: {
+                fn: 'onSearchfieldAction',
+                buffer: defaults.buffer
+            },
             clearicontap: 'onSearchfieldClearicontap'
         }
     },

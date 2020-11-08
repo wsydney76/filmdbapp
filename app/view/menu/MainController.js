@@ -31,7 +31,7 @@ Ext.define('filmdb.view.menu.MainController', {
     },
 
     onHomeButtonTap: function(btn) {
-        Ext.Viewport.hideMenu('left');
+        Ext.Viewport.hideMenu('right');
 
         var navPanel = appController.getNavPanel();
         var items = navPanel.getItems();
@@ -40,7 +40,7 @@ Ext.define('filmdb.view.menu.MainController', {
     },
 
     onSearchButtonTap: function(btn) {
-        Ext.Viewport.hideMenu('left');
+        Ext.Viewport.hideMenu('right');
         var view = new filmdb.view.search.Panel({
             title: 'Suche'
         });
@@ -48,17 +48,17 @@ Ext.define('filmdb.view.menu.MainController', {
     },
 
     onInfoButtonTap: function(btn) {
-        Ext.Viewport.hideMenu('left');
+        Ext.Viewport.hideMenu('right');
         this.redirectTo('info');
     },
 
     onBookListButtonTap: function(btn) {
-        Ext.Viewport.hideMenu('left');
+        Ext.Viewport.hideMenu('right');
         this.redirectTo('authors');
     },
 
     onOfflineButtonTap: function(btn) {
-        Ext.Viewport.hideMenu('left');
+        Ext.Viewport.hideMenu('right');
         Ext.toast(appController.isOnline() ? 'Offline Modus eingeschaltet' : 'Online Modus eingeschaltet');
         appController.toggleOnline();
 

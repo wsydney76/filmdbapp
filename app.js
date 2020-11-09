@@ -20,7 +20,7 @@ Ext.application({
     // modern toolkit, the main view will be added to the Viewport.
     //
     mainView: 'filmdb.view.main.Main'
-	
+
     //-------------------------------------------------------------------------
     // Most customizations should be made to filmdb.Application. If you need to
     // customize this file, doing so below this section reduces the likelihood

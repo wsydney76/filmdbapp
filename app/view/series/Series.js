@@ -57,7 +57,7 @@ Ext.define('filmdb.view.series.Series', {
             items: [
                 {
                     xtype: 'searchfield',
-                    id: 'seriesDetailsFilterField',
+                    reference: 'seriesDetailsFilterField',
                     placeHolder: 'Filter...',
                     width: 300
                 }

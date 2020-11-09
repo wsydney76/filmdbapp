@@ -3,7 +3,7 @@ Ext.define('filmdb.view.menu.Main', {
 
     xtype: 'mainMenu',
 
-    requires: ['filmdb.view.menu.MainController', 'filmdb.view.search.Panel', 'filmdb.view.menu.Info'],
+    requires: ['filmdb.view.menu.MainController', 'filmdb.view.search.Panel', 'filmdb.view.menu.Info', 'filmdb.view.history.Panel'],
 
     controller: 'menu-main',
 
@@ -21,6 +21,10 @@ Ext.define('filmdb.view.menu.Main', {
             text: 'Info',
             iconCls: 'x-fa fa-info',
             itemId: 'infoButton'
+        }, {
+            text: 'Verlauf',
+            iconCls: 'x-fa fa-history',
+            itemId: 'historyButton'
         }, {
             text: 'Bücher',
             iconCls: 'x-fa fa-book',

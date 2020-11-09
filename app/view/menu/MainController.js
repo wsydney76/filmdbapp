@@ -15,6 +15,9 @@ Ext.define('filmdb.view.menu.MainController', {
         '#infoButton': {
             tap: 'onInfoButtonTap'
         },
+        '#historyButton': {
+            tap: 'onHistoryButtonTap'
+        },
         '#bookListButton': {
             tap: 'onBookListButtonTap'
         },
@@ -47,6 +50,11 @@ Ext.define('filmdb.view.menu.MainController', {
     onInfoButtonTap: function(btn) {
         Ext.Viewport.hideMenu('right');
         this.redirectTo('info');
+    },
+
+    onHistoryButtonTap: function(btn) {
+        Ext.Viewport.hideMenu('right');
+        this.redirectTo('history');
     },
 
     onBookListButtonTap: function(btn) {

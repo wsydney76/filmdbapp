@@ -83,3 +83,17 @@ function getNavTitle(title) {
     var maxChars = Math.floor(window.innerWidth / 10) - 10;
     return title.length > maxChars ? title.substring(0, maxChars) + '...' : title;
 }
+
+// Convert date to ISO String
+function ISODateString (d) {
+    function pad(n) {
+        return n < 10 ? '0' + n : n;
+    }
+
+    return d.getUTCFullYear() + '-'
+        + pad(d.getUTCMonth() + 1) + '-'
+        + pad(d.getUTCDate()) + 'T'
+        + pad(d.getUTCHours()) + ':'
+        + pad(d.getUTCMinutes()) + ':'
+        + pad(d.getUTCSeconds()) + 'Z';
+}

@@ -18,12 +18,15 @@ Ext.define('filmdb.view.film.FilmController', {
             id: this.getView().film_id,
             callback: function(records, operation, success) {
                 if (success) {
+                    var film = records[0].get('film');
                     viewModel.setData({
-                        film: records[0].get('film'),
+                        film: film,
                         roles: records[0].get('roles'),
                         media: records[0].get('media')
                     });
                 }
+
+                appController.addToHistory('film/' + film.id, 'Film: ' + film.title);
 
                 unmask(this.getView());
             }, scope: this

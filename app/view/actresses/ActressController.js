@@ -20,12 +20,18 @@ Ext.define('filmdb.view.actresses.ActressController', {
             id: this.id,
             callback: function(records, operation, success) {
                 if (success) {
+
+                    actress = records[0];
+
                     viewModel.setData({
-                        roles: records[0].get('roles')
+                        roles: actress.get('roles')
                     });
-                    if ((records[0].get('haspictures') > 0) && (appController.isOnline())) {
+                    if ((actress.get('haspictures') > 0) && (appController.isOnline())) {
                         this.lookup('pictureButton').setHidden(false);
                     }
+
+                    appController.addToHistory('actress/' + actress.id, 'Darstellerin: ' + actress.get('name'))
+
                     unmask(this.getView());
                 }
             },

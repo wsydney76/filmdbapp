@@ -30,9 +30,11 @@ Ext.define('filmdb.view.series.SeriesController', {
                     }
                     viewModel.getStore('films').setData(films);
 
-                    seriesName = records[0].get('series').name;
+                    series = records[0].get('series');
 
-                    this.lookup('seriesTitle').setHtml(`<h1 class="heading">${seriesName}</h1>`)
+                    this.lookup('seriesTitle').setHtml(`<h1 class="heading">${series.name}</h1>`)
+
+                    appController.addToHistory('series/' + series.id, 'Serie: ' + series.name)
 
                     unmask(this.getView());
                 }
@@ -44,7 +46,7 @@ Ext.define('filmdb.view.series.SeriesController', {
         'list': {
             itemtap: 'onItemTap'
         },
-        "#seriesDetailsFilterField": {
+        "searchfield": {
             action: 'onSearchfieldAction',
             change: {
                 fn: 'onSearchfieldAction',

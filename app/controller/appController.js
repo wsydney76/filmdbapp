@@ -1,6 +1,7 @@
 Ext.define('filmdb.controller.appController', {
     extend: 'Ext.app.Controller',
 
+    stores: ['History'],
 
     routes: {
         'series/:id': 'onSeries',
@@ -8,6 +9,7 @@ Ext.define('filmdb.controller.appController', {
         'film/:id': 'onFilm',
         'pictures/:id': 'onPictures',
         'info': 'onInfo',
+        'history': 'onHistory',
         'search': 'onSearch',
         'search/:q': 'onSearchResult',
         'authors': 'onAuthors',
@@ -37,6 +39,11 @@ Ext.define('filmdb.controller.appController', {
 
     onInfo: function() {
         var view = new filmdb.view.menu.Info({title: 'Info'});
+        this.showView(view);
+    },
+
+    onHistory: function() {
+        var view = new filmdb.view.history.Panel({title: 'Verlauf'});
         this.showView(view);
     },
 
@@ -100,6 +107,23 @@ Ext.define('filmdb.controller.appController', {
         }
     },
 
+
+    // update localStorage for recent searches, latest on top
+    addToHistory: function(route, title) {
+        var store = this.getHistoryStore();
+
+        // delete old record if already used
+        var match = store.query('route', route);
+        if (match.length) {
+            match.getAt(0).drop();
+        }
+
+        store.insert(0, {
+            timestamp: ISODateString(new Date()),
+            route: route,
+            title: title
+        });
+    },
 
     getSetting: function(item, defaultValue) {
         var setting = localStorage.getItem('filmdb_' + item);

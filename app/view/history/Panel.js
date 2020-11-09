@@ -4,14 +4,10 @@ Ext.define('filmdb.view.history.Panel', {
     xtype: 'historyPanel',
 
     requires: [
-        'filmdb.view.history.PanelController',
-        'filmdb.view.history.PanelModel'
+        'filmdb.view.history.PanelController'
     ],
 
     controller: 'history-panel',
-    viewModel: {
-        type: 'history-panel'
-    },
 
     layout: 'vbox',
 
@@ -19,7 +15,8 @@ Ext.define('filmdb.view.history.Panel', {
         {
             xtype: 'panel',
             layout: 'hbox',
-            items: [{
+            items: [
+                {
                     xtype: 'button',
                     text: 'Verlauf löschen',
                     ui: 'action'
@@ -28,9 +25,8 @@ Ext.define('filmdb.view.history.Panel', {
         }, {
             xtype: 'list',
             flex: 1,
-            bind: {
-                store: 'History'
-            },
+            store: 'History',
+
             itemTpl: '{title}',
             items: [
                 {

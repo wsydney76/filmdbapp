@@ -14,10 +14,18 @@ Ext.define('filmdb.view.book.ListController', {
         store.load({
             id: this.getView().author_id,
             callback: function(records, operation, success) {
-                r = records;
+
                 if (success) {
+                    author = records[0].get('author');
+                    if (author.bio) {
+                        bookList = this.lookup('bookList');
+                        bookList.parent.setScrollable(true);
+                        bookList.setScrollable(false);
+                        bookList.setFlex(null);
+                    }
+
                     viewModel.setData({
-                        author: records[0].get('author'),
+                        author: author,
                     });
                     store.setData(records[0].get('books'))
                 }

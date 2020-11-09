@@ -13,7 +13,6 @@ Ext.define('filmdb.view.book.List', {
 
     layout: 'vbox',
     bodypadding: 12,
-    scrollable: true,
 
     items: [
         {
@@ -39,6 +38,7 @@ Ext.define('filmdb.view.book.List', {
 			</div>`
         }, {
             xtype: 'list',
+            reference: 'bookList',
             bind: {
                 store: '{books}'
             },
@@ -46,8 +46,8 @@ Ext.define('filmdb.view.book.List', {
             styleHtmlContent: true,
             striped: true,
             grouped: true,
-            // infinite: true,
-            // itemHeight: 80,
+            flex: 1,
+            scrollable: true,
 
             itemTpl: `  	
                 <b>{title} <tpl if="episode != 0"> ({episode})</tpl> </b><br/>

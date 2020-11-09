@@ -29,8 +29,7 @@ Ext.define('filmdb.view.search.PanelController', {
 
     doSearch: function(q) {
         this.addToSearches(q);
-        var view = new filmdb.view.search.Result({q: q, title: getNavTitle(q)});
-        appController.showView(view);
+        this.redirectTo('search/' + q);
     },
 
     // update localStorage for recent searches, latest on top

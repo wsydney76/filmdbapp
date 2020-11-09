@@ -41,10 +41,7 @@ Ext.define('filmdb.view.menu.MainController', {
 
     onSearchButtonTap: function(btn) {
         Ext.Viewport.hideMenu('right');
-        var view = new filmdb.view.search.Panel({
-            title: 'Suche'
-        });
-        appController.showView(view);
+        this.redirectTo('search');
     },
 
     onInfoButtonTap: function(btn) {

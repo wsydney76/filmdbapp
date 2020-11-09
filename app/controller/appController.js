@@ -8,6 +8,8 @@ Ext.define('filmdb.controller.appController', {
         'film/:id': 'onFilm',
         'pictures/:id': 'onPictures',
         'info': 'onInfo',
+        'search': 'onSearch',
+        'search/:q': 'onSearchResult',
         'authors': 'onAuthors',
         'authors/:id': 'onAuthor'
 
@@ -38,14 +40,24 @@ Ext.define('filmdb.controller.appController', {
         this.showView(view);
     },
 
+    onSearch: function() {
+        var view = new filmdb.view.search.Panel({title: 'Suche'});
+        this.showView(view);
+    },
+
+    onSearchResult: function(q) {
+        var view = new filmdb.view.search.Result({q: q, title: getNavTitle(q)});
+        this.showView(view);
+    },
+
     onAuthors: function() {
         var view = new filmdb.view.book.AuthorList({title: 'Autoren'});
-        appController.showView(view);
+        this.showView(view);
     },
 
     onAuthor: function(id) {
         var view = new filmdb.view.book.List({author_id: id, title: 'Bücher'});
-        appController.showView(view);
+        this.showView(view);
     },
 
 
